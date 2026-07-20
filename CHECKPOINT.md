@@ -18,9 +18,14 @@ repository-pinned Lean 4.27.0 toolchain, and Formal Conjectures plus its pinned 
 fetched successfully. The candidate was updated for the repository's current import API:
 `FormalConjecturesUtil` replaces the removed `FormalConjectures.Util.ProblemImports` module.
 
-A direct elaboration against the pinned Lean and Mathlib environment completed without diagnostics.
-The full repository-standard import build is still required before calling this a completed
-formalization; it must also be run with `LEAN_NUM_THREADS=1` in memory-constrained environments.
+A direct elaboration against the pinned Lean and Mathlib environment completed with only the expected
+warning that the open conjecture declaration uses `sorry`; its supporting definitions and controls
+therefore elaborated successfully. The current Lake named-target wrapper reports an opaque empty
+`no such file or directory` failure for this newly introduced numeric module even after all imported
+Formal Conjectures support modules build. Use the captured direct `lake env lean
+FormalConjectures/ErdosProblems/530.lean` check for the immediate kernel-elaboration gate, then
+resolve the Lake wrapper behavior before claiming repository CI has passed. Use `LEAN_NUM_THREADS=1`
+in memory-constrained environments.
 The earlier diagnostics `20260720-194849-f1733c` and `20260720-194914-3f029d` are failed resource
 controls (“failed to create thread”), not source errors.
 
