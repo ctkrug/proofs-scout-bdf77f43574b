@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "20260720-194925-0f2242",
+  "name": "erdos530-local-elaboration-blocker-final",
+  "hypothesis": "The current local environment lacks the Formal Conjectures and Mathlib imports needed to elaborate the candidate",
+  "expected_signal": "Lean exits nonzero at the unknown FormalConjectures module prefix before checking the declaration",
+  "command": [
+    "lean",
+    "FormalConjectures/ErdosProblems/530.lean"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 60,
+  "memory_limit_mb": 4096,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-20T19:49:25.507606+00:00",
+  "finished_at": "2026-07-20T19:49:25.733389+00:00",
+  "duration_seconds": 0.226,
+  "returncode": 1,
+  "timed_out": false,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "f03abfab147e1911cc933056ce67e5390ee8f6dc",
+  "source_urls": [
+    "https://github.com/google-deepmind/formal-conjectures"
+  ],
+  "input_artifacts": {
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/FormalConjectures/ErdosProblems/530.lean": "c9da31e92b035492d163a85fd74d6e26bf8b9b2fd22d9e7b90a9eb4dba2f8b2d"
+  },
+  "peak_child_memory_rusage": 177536,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "4f8081bb5ab5ea9edcc1878c2f471058032a0f7cd5edb5db8cd670b0a31ee5f2",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

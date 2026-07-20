@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "20260720-194758-ee6344",
+  "name": "erdos530-sidon-semantics",
+  "hypothesis": "The four-variable Sidon predicate agrees with uniqueness of unordered pair sums with repetition and rejects two common misencodings on bounded controls",
+  "expected_signal": "Zero mismatches on every subset of integers -4 through 4, with all seven controls true",
+  "command": [
+    "python3",
+    "checks/check_sidon_semantics.py"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 60,
+  "memory_limit_mb": 256,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-20T19:47:58.056679+00:00",
+  "finished_at": "2026-07-20T19:47:58.132454+00:00",
+  "duration_seconds": 0.076,
+  "returncode": 0,
+  "timed_out": false,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "f03abfab147e1911cc933056ce67e5390ee8f6dc",
+  "source_urls": [
+    "https://www.erdosproblems.com/530"
+  ],
+  "input_artifacts": {
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/check_sidon_semantics.py": "61e1779dcad8af8eca614d1f3c87755ea55605ea6e69a748a6803db6d0d82304"
+  },
+  "peak_child_memory_rusage": 17920,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "4022335b57914d27fce7bfcba46b793d08c21becbbe0a6b6e6a28202184f2925",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

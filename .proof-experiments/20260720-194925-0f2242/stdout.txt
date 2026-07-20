@@ -1,0 +1,4 @@
+FormalConjectures/ErdosProblems/530.lean:17:0: error: unknown module prefix 'FormalConjectures'
+
+No directory 'FormalConjectures' or file 'FormalConjectures.olean' in the search path entries:
+/root/.elan/toolchains/stable/lib/lean

@@ -1,0 +1,70 @@
+{
+  "by_size": {
+    "0": {
+      "checked": 1,
+      "sidon": 1
+    },
+    "1": {
+      "checked": 9,
+      "sidon": 9
+    },
+    "2": {
+      "checked": 36,
+      "sidon": 36
+    },
+    "3": {
+      "checked": 84,
+      "sidon": 68
+    },
+    "4": {
+      "checked": 126,
+      "sidon": 26
+    },
+    "5": {
+      "checked": 126,
+      "sidon": 0
+    },
+    "6": {
+      "checked": 84,
+      "sidon": 0
+    },
+    "7": {
+      "checked": 36,
+      "sidon": 0
+    },
+    "8": {
+      "checked": 9,
+      "sidon": 0
+    },
+    "9": {
+      "checked": 1,
+      "sidon": 0
+    }
+  },
+  "controls": {
+    "empty_is_sidon": true,
+    "ordered_encoding_rejects_swap": true,
+    "singleton_is_sidon": true,
+    "swapped_pair_is_allowed": true,
+    "weak_encoding_misses_double_collision": true,
+    "zero_one_three_is_sidon": true,
+    "zero_one_two_is_not_sidon": true
+  },
+  "domain": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "mismatches": [],
+  "scope": "every subset of the stated nine-element integer domain",
+  "script_sha256": "61e1779dcad8af8eca614d1f3c87755ea55605ea6e69a748a6803db6d0d82304",
+  "sidon_subsets": 140,
+  "subsets_checked": 512,
+  "success": true
+}

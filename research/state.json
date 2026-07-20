@@ -1,0 +1,129 @@
+{
+  "epoch_count": 1,
+  "baseline_review": {
+    "status": "completed",
+    "reviewed_at": "2026-07-20T19:49:25Z",
+    "source_attempt_id": "baseline-erdos530-20260720",
+    "requirement": "Exact statement/status, historical and current methods, closest work, formal repository, tooling, compute scale, and external acceptance path audited."
+  },
+  "synthesis_summary": "Problem #530 remains open on the maintained source and unformalized in Formal Conjectures. A May 2026 preprint postdating the source-page edit improves the lower-bound constant but not to the conjectured 1. A scoped Lean candidate and maximality API were drafted. Two independent finite Sidon encodings agree on all 512 subsets of [-4,4], but the actual Lean file is not yet elaborated because this environment lacks the pinned repository/Mathlib dependencies.",
+  "established_facts": [
+    {
+      "claim": "The maintained page states the min-max Sidon-subset problem over finite subsets of the reals, asks whether ell(N) is asymptotic to sqrt(N), marks it OPEN, and says it is not formalised.",
+      "evidence": "https://www.erdosproblems.com/530 accessed 2026-07-20",
+      "scope": "Maintained-source status, not a literature-complete certification",
+      "status": "conditional"
+    },
+    {
+      "claim": "Formal Conjectures issue #773 is open, unassigned, up for grabs, and has no linked development branch or pull request.",
+      "evidence": "https://github.com/google-deepmind/formal-conjectures/issues/773 accessed 2026-07-20",
+      "scope": "Visible GitHub issue metadata",
+      "status": "conditional"
+    },
+    {
+      "claim": "Bailleul and Riblet report (1/(3 sqrt 3)+o(1)) sqrt(n) as a lower bound for arbitrary finite subsets of Z and R^d.",
+      "evidence": "https://arxiv.org/abs/2605.03181, v1 submitted 2026-05-04",
+      "scope": "Claim reported by the preprint; proof not independently reconstructed in this epoch",
+      "status": "conditional"
+    },
+    {
+      "claim": "The literal four-variable Sidon predicate agrees with uniqueness of unordered pair sums with repetition on every subset of {-4,...,4}.",
+      "evidence": ".proof-experiments/20260720-194758-ee6344/stdout.txt; 512 subsets, zero mismatches, script SHA-256 61e1779dcad8af8eca614d1f3c87755ea55605ea6e69a748a6803db6d0d82304",
+      "scope": "Every subset of the stated nine-element integer domain only",
+      "status": "computed"
+    }
+  ],
+  "strategy_registry": [
+    {
+      "id": "formal-premise-retrieval",
+      "family": "formal proof with premise retrieval",
+      "fingerprint": "formal-premise-retrieval",
+      "mechanism": "Translate the maintained statement using Finset, Nat.findGreatest, and Mathlib asymptotic equivalence; attack semantics with finite controls before pinned elaboration.",
+      "status": "active",
+      "first_discriminator": "Run the target build at the repository-pinned Lean 4.27.0 and Mathlib commit, then full lake build."
+    }
+  ],
+  "open_leads": [
+    {
+      "description": "Elaborate the candidate in a current Formal Conjectures checkout.",
+      "rationale": "Kernel elaboration is the cheapest decisive test of the contribution.",
+      "next_experiment": "Copy FormalConjectures/ErdosProblems/530.lean into the pinned repository and run lake build FormalConjectures.ErdosProblems.530.",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "description": "Obtain human review of the exact-size extremal definition and asymptotic translation.",
+      "rationale": "Kernel checking cannot establish equivalence to the informal source statement.",
+      "next_experiment": "Request assignment on issue #773, submit a linked PR after local build, and ask reviewers to check four enumerated semantic points in CHECKPOINT.md.",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "description": "Resolve the 0.08 versus 0.0805 description of Abbott's prior constant.",
+      "rationale": "The discrepancy affects only the literature note, not the Lean target, but should not be propagated.",
+      "next_experiment": "Compare Abbott's proof optimization with the exact passage and citation in arXiv:2605.03181v1.",
+      "priority": "low",
+      "status": "open"
+    }
+  ],
+  "ruled_out": [
+    {
+      "claim_or_route": "Use weak Sidon uniqueness that ignores repeated summands.",
+      "scope": "Formal statement design",
+      "reason": "It wrongly accepts {0,1,2}, despite 0+2=1+1.",
+      "evidence": ".proof-experiments/20260720-194758-ee6344/stdout.txt",
+      "reopen_condition": "Only if an authoritative source explicitly changes the definition to weak Sidon."
+    },
+    {
+      "claim_or_route": "Demand uniqueness of ordered pair representations.",
+      "scope": "Formal statement design",
+      "reason": "It wrongly rejects every nontrivial swapped pair (a,b)/(b,a).",
+      "evidence": ".proof-experiments/20260720-194758-ee6344/stdout.txt",
+      "reopen_condition": "None for the present source statement."
+    },
+    {
+      "claim_or_route": "Treat the maintained page's 2026-04-08 literature note as current-complete.",
+      "scope": "Literature baseline",
+      "reason": "arXiv:2605.03181 was submitted afterward and gives a newer lower-bound constant.",
+      "evidence": "https://arxiv.org/abs/2605.03181",
+      "reopen_condition": "Not applicable; future audits must search past the page edit date."
+    }
+  ],
+  "next_session": {
+    "objective": "Turn the drafted interface into a kernel-checked, externally reviewed Formal Conjectures contribution.",
+    "first_action": "Follow the exact target-build command in CHECKPOINT.md in a network-enabled current repository checkout.",
+    "stop_condition": "Target and full builds pass, only the open theorem contains sorry, and repository review confirms equivalence; otherwise record the first elaboration or semantic discrepancy."
+  },
+  "cross_problem_brain": {
+    "baseline_review": {
+      "status": "completed",
+      "reviewed_at": "2026-07-20T19:49:25Z",
+      "source_attempt_id": "baseline-erdos530-20260720"
+    },
+    "current_facts": [
+      "Mathlib's Nat.findGreatest supplies a bounded finite extremum and maximality lemmas.",
+      "Mathlib's Asymptotics.IsEquivalent notation directly represents the source's tilde relation."
+    ],
+    "current_exclusions": [
+      "Weak Sidon and ordered-pair uniqueness are semantically wrong for #530.",
+      "A larger finite cutoff is not a contribution and will not replace Lean elaboration."
+    ],
+    "current_leads": [
+      "Formal extremal definitions in Mathlib such as the Ruzsa-Szemeredi number predict that Nat.findGreatest is reviewer-familiar; test by pinned elaboration and review."
+    ],
+    "linked_problems": [
+      {
+        "source_concept": "Mathlib Ruzsa-Szemeredi extremal number uses Nat.findGreatest",
+        "prediction": "A bounded Nat.findGreatest definition for ell will have a short maximality API and fit library idiom.",
+        "test": "Pinned target build plus Formal Conjectures review",
+        "status": "untested externally"
+      },
+      {
+        "source_concept": "Weak Sidon subset problem arXiv:2602.23282",
+        "prediction": "A weak-Sidon predicate would pass distinct-pair checks but fail a double-summand control.",
+        "test": "Evaluate {0,1,2}",
+        "status": "observed: weak predicate accepts it, so transfer rejected for #530"
+      }
+    ]
+  }
+}

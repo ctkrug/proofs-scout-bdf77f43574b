@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "problem_id": "scout-bdf77f43574b",
+  "title": "Lean formalization of Erdős Problem #530 (largest guaranteed Sidon subset)",
+  "source_url": "https://www.erdosproblems.com/530",
+  "lane": "easy",
+  "github_owner": "ctkrug",
+  "github_repository": "proofs-scout-bdf77f43574b",
+  "visibility_policy": "private-until-explicit-human-release",
+  "canonical_engine": "https://github.com/ctkrug/proofs"
+}
