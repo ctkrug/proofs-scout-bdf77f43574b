@@ -11,17 +11,18 @@ Last completed epoch: baseline audit, 2026-07-20 UTC.
 - Terra memo provenance was verified: SHA-256
   `a84aafb6c27cf9ae1dc1e0820d1ddf60ea350d8dff9dd334f9e6c52fcbdcb3af`.
 
-## Current blocker
+## Current state
 
-This environment cannot resolve GitHub from the shell. It has Lean 4.32.0 but no Mathlib checkout;
-Formal Conjectures main pins Lean 4.27.0 and Mathlib
-`a3a10db0e9d66acbebf76c5e6a135066525ac900`. Therefore the candidate has not been elaborated and
-must not be called a completed formalization.
+The environment blocker was resolved on 2026-07-20: a project-scoped `elan` installation selected the
+repository-pinned Lean 4.27.0 toolchain, and Formal Conjectures plus its pinned Mathlib revision were
+fetched successfully. The candidate was updated for the repository's current import API:
+`FormalConjecturesUtil` replaces the removed `FormalConjectures.Util.ProblemImports` module.
 
-The successful setup diagnostic is `.proof-experiments/20260720-194925-0f2242`: with
-`LEAN_NUM_THREADS=1` it records the unknown `FormalConjectures` module prefix. Earlier diagnostics
-`20260720-194849-f1733c` and `20260720-194914-3f029d` are failed resource controls (“failed to create
-thread”) and must not be interpreted as source errors.
+A direct elaboration against the pinned Lean and Mathlib environment completed without diagnostics.
+The full repository-standard import build is still required before calling this a completed
+formalization; it must also be run with `LEAN_NUM_THREADS=1` in memory-constrained environments.
+The earlier diagnostics `20260720-194849-f1733c` and `20260720-194914-3f029d` are failed resource
+controls (“failed to create thread”), not source errors.
 
 ## Exact first action next epoch
 
