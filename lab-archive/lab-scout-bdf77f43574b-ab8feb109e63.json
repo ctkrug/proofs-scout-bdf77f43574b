@@ -47,5 +47,29 @@
     "FormalConjectures/ErdosProblems/530.lean": "50f3081d7647c1a892356043e55a96d8720aeea6ba64cfc89754fa79da4ef6e4",
     "checks/run_erdos530_lean_build.sh": "dbdeb901c19808cb9f06785e269b79690ba7b5cfe368db7e655077015a2ff6c2"
   },
-  "spec_sha256": "e41d2a8762e44a5811c792024130117340c64d247ecb54fac8718c918fb847a7"
+  "spec_sha256": "e41d2a8762e44a5811c792024130117340c64d247ecb54fac8718c918fb847a7",
+  "final_record": {
+    "recorded_at": "2026-07-21T21:30:28.381405+00:00",
+    "job_id": "lab-scout-bdf77f43574b-ab8feb109e63",
+    "problem_id": "scout-bdf77f43574b",
+    "segment": 1,
+    "max_segments": 1,
+    "returncode": 1,
+    "duration_seconds": 50.487776,
+    "checkpoint_exists": false,
+    "checkpoint_sha256": "",
+    "progress": {
+      "complete": true,
+      "completed_units": 1,
+      "total_units": 1,
+      "correctness_checks_passed": true,
+      "decision_value_active": true
+    },
+    "threshold_failures": [
+      "segment process returned 1"
+    ],
+    "runner_result": "{\n  \"experiment_dir\": \"/root/proof-factory/research/scout-bdf77f43574b/workspace/lab-runs/lab-scout-bdf77f43574b-ab8feb109e63/segment-000001/20260721-212937-1cdc83\",\n  \"schema_version\": 1,\n  \"id\": \"20260721-212937-1cdc83\",\n  \"name\": \"erdos530-correct-numeric-target-wfail-phase4-virtual-cap segment 1/1\",\n  \"hypothesis\": \"The immutable candidate passes the repository warning-fatal build under the disambiguated numeric target with Lean virtual address space separated from the physical cgroup cap.\",\n  \"expected_signal\": \"Driver and candidate hashes match; lake --wfail build exits zero and produces a nonempty 530.olean, or the first exact warning/elaboration failure is retained.\",\n  \"command\": [\n    \"checks/run_erdos530_lean_build.sh\",\n    \"FormalConjectures/ErdosProblems/530.lean\"\n  ],\n  \"cwd\": \"/root/proof-factory/research/scout-bdf77f43574b/workspace\",\n  \"seed\": 0,\n  \"timeout_seconds\": 1200,\n  \"memory_limit_mb\": 4096,\n  \"memory_limit_enforced\": true,\n  \"started_at\": \"2026-07-21T21:29:37.982949+00:00\",\n  \"finished_at\": \"2026-07-21T21:30:28.356854+00:00\",\n  \"duration_seconds\": 50.374,\n  \"returncode\": 1,\n  \"timed_out\": false,\n  \"python\": \"3.12.3\",\n  \"platform\": \"Linux-6.8.0-124-generic-x86_64-with-glibc2.39\",\n  \"git_commit\": \"ab09eb7579287dec1e4480f7261c2f057e4b7f26\",\n  \"source_urls\": [\n    \"https://github.com/google-deepmind/formal-conjectures/issues/773\"\n  ],\n  \"input_artifacts\": {\n    \"/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/run_erdos530_lean_build.sh\": \"dbdeb901c19808cb9f06785e269b79690ba7b5cfe368db7e655077015a2ff6c2\",\n    \"/root/proof-factory/research/scout-bdf77f43574b/workspace/FormalConjectures/ErdosProblems/530.lean\": \"50f3081d7647c1a892356043e55a96d8720aeea6ba64cfc89754fa79da4ef6e4\"\n  },\n  \"peak_child_memory_rusage\": 890060,\n  \"peak_child_memory_unit\": \"kilobytes\",\n  \"artifacts\": {\n    \"stdout.txt\": \"8215575b20c72961c7abc1113cd3c3d98f880d2decbac8fa594f70746954ba9b\",\n    \"stderr.txt\": \"c4a27db198c4d8632369ee6102944ef46e83c20d685f7c17a6aaff9cfcfc710f\"\n  }\n}\n",
+    "runner_error": "",
+    "output_root": "lab-runs/lab-scout-bdf77f43574b-ab8feb109e63/segment-000001"
+  }
 }
