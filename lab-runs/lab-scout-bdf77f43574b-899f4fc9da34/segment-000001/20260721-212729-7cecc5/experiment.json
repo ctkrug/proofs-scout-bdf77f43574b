@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "20260721-212729-7cecc5",
+  "name": "erdos530-correct-numeric-target-wfail-phase4 segment 1/1",
+  "hypothesis": "The immutable candidate passes the repository warning-fatal build under the disambiguated numeric target after the pinned support cache is restored.",
+  "expected_signal": "Driver hashes match the submitted candidate and lake --wfail build exits zero with a nonempty 530.olean; otherwise preserve the first warning or elaboration error.",
+  "command": [
+    "checks/run_erdos530_lean_build.sh",
+    "FormalConjectures/ErdosProblems/530.lean"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 1200,
+  "memory_limit_mb": 1100,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-21T21:27:29.139218+00:00",
+  "finished_at": "2026-07-21T21:27:29.764365+00:00",
+  "duration_seconds": 0.625,
+  "returncode": 1,
+  "timed_out": false,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "b4144b35f58eeed57842b514741218bcb4b78849",
+  "source_urls": [
+    "https://github.com/google-deepmind/formal-conjectures/issues/773"
+  ],
+  "input_artifacts": {
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/run_erdos530_lean_build.sh": "dbdeb901c19808cb9f06785e269b79690ba7b5cfe368db7e655077015a2ff6c2",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/FormalConjectures/ErdosProblems/530.lean": "50f3081d7647c1a892356043e55a96d8720aeea6ba64cfc89754fa79da4ef6e4"
+  },
+  "peak_child_memory_rusage": 328764,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "dceb30d98a085dfd20f7182fd987b3ec48da7696cf5aa4854ab1ce8b194f5fa2",
+    "stderr.txt": "48c36bc28a02788afa4ef5f1c54e1d101c2f4a32f1b649934689e4a890c07fd1"
+  }
+}
