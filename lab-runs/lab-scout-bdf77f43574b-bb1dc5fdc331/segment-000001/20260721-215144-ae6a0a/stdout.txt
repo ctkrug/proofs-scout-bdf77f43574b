@@ -1,0 +1,3 @@
+aeeecead7a08c53f5248683b0fcf8265e20ecfa1ba9e8d5b7806e0ea03eefdfb  /root/proof-factory/research/scout-bdf77f43574b/workspace/checks/import_finitetype.lean
+Lake version 5.0.0-src+db93fe1 (Lean version 4.27.0)
+Algebra.FiniteType.{uR, uA} (R : Type uR) (A : Type uA) [CommSemiring R] [Semiring A] [Algebra R A] : Prop

@@ -47,5 +47,27 @@
     "checks/import_finitetype.lean": "aeeecead7a08c53f5248683b0fcf8265e20ecfa1ba9e8d5b7806e0ea03eefdfb",
     "checks/run_import_control.sh": "773a39ed57f5c181be9f5b8963bf2f46baabcaf2c50ec9b7a423450e3537b320"
   },
-  "spec_sha256": "4fbdd01138ae77d01f299df71585a8961d36aed2aea9a456f95a0390e5a87c5f"
+  "spec_sha256": "4fbdd01138ae77d01f299df71585a8961d36aed2aea9a456f95a0390e5a87c5f",
+  "final_record": {
+    "recorded_at": "2026-07-21T21:52:07.518184+00:00",
+    "job_id": "lab-scout-bdf77f43574b-bb1dc5fdc331",
+    "problem_id": "scout-bdf77f43574b",
+    "segment": 1,
+    "max_segments": 1,
+    "returncode": 0,
+    "duration_seconds": 23.088537,
+    "checkpoint_exists": false,
+    "checkpoint_sha256": "",
+    "progress": {
+      "complete": true,
+      "completed_units": 1,
+      "total_units": 1,
+      "correctness_checks_passed": true,
+      "decision_value_active": true
+    },
+    "threshold_failures": [],
+    "runner_result": "{\n  \"experiment_dir\": \"/root/proof-factory/research/scout-bdf77f43574b/workspace/lab-runs/lab-scout-bdf77f43574b-bb1dc5fdc331/segment-000001/20260721-215144-ae6a0a\",\n  \"schema_version\": 1,\n  \"id\": \"20260721-215144-ae6a0a\",\n  \"name\": \"erdos530-mathlib-finitetype-cache-control segment 1/1\",\n  \"hypothesis\": \"The pinned Mathlib FiniteType OLean is independently readable; if this small import passes, the umbrella-target failure is aggregate resource pressure rather than a missing or corrupt cache file.\",\n  \"expected_signal\": \"The exact import exits zero and prints the checked declaration; otherwise retain the first cache compatibility or read error.\",\n  \"command\": [\n    \"checks/run_import_control.sh\",\n    \"checks/import_finitetype.lean\"\n  ],\n  \"cwd\": \"/root/proof-factory/research/scout-bdf77f43574b/workspace\",\n  \"seed\": 0,\n  \"timeout_seconds\": 300,\n  \"memory_limit_mb\": 16384,\n  \"memory_limit_enforced\": true,\n  \"started_at\": \"2026-07-21T21:51:44.484824+00:00\",\n  \"finished_at\": \"2026-07-21T21:52:07.502414+00:00\",\n  \"duration_seconds\": 23.018,\n  \"returncode\": 0,\n  \"timed_out\": false,\n  \"python\": \"3.12.3\",\n  \"platform\": \"Linux-6.8.0-124-generic-x86_64-with-glibc2.39\",\n  \"git_commit\": \"846ccecd0cf60e3dc0f137b9f6e7c9a0bf6e7b0b\",\n  \"source_urls\": [\n    \"https://github.com/leanprover-community/mathlib4\"\n  ],\n  \"input_artifacts\": {\n    \"/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/run_import_control.sh\": \"773a39ed57f5c181be9f5b8963bf2f46baabcaf2c50ec9b7a423450e3537b320\",\n    \"/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/import_finitetype.lean\": \"aeeecead7a08c53f5248683b0fcf8265e20ecfa1ba9e8d5b7806e0ea03eefdfb\"\n  },\n  \"peak_child_memory_rusage\": 2186108,\n  \"peak_child_memory_unit\": \"kilobytes\",\n  \"artifacts\": {\n    \"stdout.txt\": \"dd2ae84b4460c5a922c55c43a127f90231a480612c143bce78e536d8d888e763\",\n    \"stderr.txt\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"\n  }\n}\n",
+    "runner_error": "",
+    "output_root": "lab-runs/lab-scout-bdf77f43574b-bb1dc5fdc331/segment-000001"
+  }
 }

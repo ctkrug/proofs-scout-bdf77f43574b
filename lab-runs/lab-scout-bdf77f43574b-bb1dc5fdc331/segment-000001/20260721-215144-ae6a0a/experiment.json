@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "20260721-215144-ae6a0a",
+  "name": "erdos530-mathlib-finitetype-cache-control segment 1/1",
+  "hypothesis": "The pinned Mathlib FiniteType OLean is independently readable; if this small import passes, the umbrella-target failure is aggregate resource pressure rather than a missing or corrupt cache file.",
+  "expected_signal": "The exact import exits zero and prints the checked declaration; otherwise retain the first cache compatibility or read error.",
+  "command": [
+    "checks/run_import_control.sh",
+    "checks/import_finitetype.lean"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 300,
+  "memory_limit_mb": 16384,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-21T21:51:44.484824+00:00",
+  "finished_at": "2026-07-21T21:52:07.502414+00:00",
+  "duration_seconds": 23.018,
+  "returncode": 0,
+  "timed_out": false,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "846ccecd0cf60e3dc0f137b9f6e7c9a0bf6e7b0b",
+  "source_urls": [
+    "https://github.com/leanprover-community/mathlib4"
+  ],
+  "input_artifacts": {
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/run_import_control.sh": "773a39ed57f5c181be9f5b8963bf2f46baabcaf2c50ec9b7a423450e3537b320",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/import_finitetype.lean": "aeeecead7a08c53f5248683b0fcf8265e20ecfa1ba9e8d5b7806e0ea03eefdfb"
+  },
+  "peak_child_memory_rusage": 2186108,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "dd2ae84b4460c5a922c55c43a127f90231a480612c143bce78e536d8d888e763",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
