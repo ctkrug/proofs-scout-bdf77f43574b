@@ -1,0 +1,52 @@
+{
+  "event": "submitted",
+  "schema_version": 2,
+  "id": "lab-scout-bdf77f43574b-f16b65033259",
+  "problem_id": "scout-bdf77f43574b",
+  "name": "erdos530-correct-numeric-target-wfail-phase4-address-cap",
+  "hypothesis": "The immutable candidate passes the repository warning-fatal build under the disambiguated numeric target with mapped-file address space separated from the physical cgroup cap.",
+  "expected_signal": "Driver and candidate hashes match; lake --wfail build exits zero and produces a nonempty 530.olean, or the first exact warning/elaboration failure is retained.",
+  "decision_value": "A passing target build removes the concrete Lean-toolchain blocker and permits the campaign to advance to full-build and human-review gates; a failure identifies the first exact source discrepancy.",
+  "efficiency_design": {
+    "naive_cost": "Rehydrate and rebuild a second 6.9 GiB Mathlib tree, then invoke a full repository build before learning whether the one numeric module target elaborates.",
+    "opportunities_considered": [
+      "Reuse the manifest-identical pinned Mathlib package and compiled-object cache instead of cloning or hydrating it again.",
+      "Build only the disambiguated numeric module target before any full-repository validation.",
+      "Use one Lean thread and a warning-fatal invocation under the checkpointed resource-limited lab.",
+      "Hash the driver and candidate as immutable lab inputs and record checkout, candidate, manifest, toolchain, stdout, and stderr hashes.",
+      "Retain the prior finite semantic controls rather than rerunning an arbitrary larger cutoff."
+    ],
+    "chosen_reductions": "Share only the manifest-identical package cache, keep workspace build outputs isolated, and run one exact +FormalConjectures.ErdosProblems.«530» target with --wfail.",
+    "expected_throughput_gain": "Avoids a second multi-GiB download and turns the discriminator into one bounded target build; expected wall time is minutes rather than a full hydrate plus full build.",
+    "soundness_basis": "Both checkouts have identical lake-manifest SHA-256, Mathlib commit, and Lean 4.27 toolchain. Lake and Lean kernel perform the target check; warning-fatal mode rejects warnings; durable lab records retain exact inputs and outputs.",
+    "remains_uncompressed": "The target module and its transitive local Formal Conjectures support imports still compile normally. A later full repository build, repository CI, and human semantic review remain separate required gates."
+  },
+  "source_urls": [
+    "https://github.com/google-deepmind/formal-conjectures/issues/773"
+  ],
+  "command": [
+    "checks/run_erdos530_lean_build.sh",
+    "FormalConjectures/ErdosProblems/530.lean"
+  ],
+  "seed": 0,
+  "segment_seconds": 1200,
+  "memory_mb": 8192,
+  "max_segments": 1,
+  "segment": 1,
+  "pilot_segments": 1,
+  "review_every_segments": 1,
+  "checkpoint_path": "",
+  "progress_path": "",
+  "continuation_thresholds": {
+    "min_throughput_per_second": 0.0,
+    "max_artifact_growth_bytes": 0,
+    "require_correctness_checks": true
+  },
+  "submitted_at": "2026-07-21T21:31:56.285692+00:00",
+  "workspace_git_commit": "9ab8740df931a491b87d322164749036afa8c736",
+  "input_sha256": {
+    "FormalConjectures/ErdosProblems/530.lean": "50f3081d7647c1a892356043e55a96d8720aeea6ba64cfc89754fa79da4ef6e4",
+    "checks/run_erdos530_lean_build.sh": "dbdeb901c19808cb9f06785e269b79690ba7b5cfe368db7e655077015a2ff6c2"
+  },
+  "spec_sha256": "2a152a201a3d2b5eeb440d044561f5dbd55513be9f3ee6394b0b5fafbba9db88"
+}
