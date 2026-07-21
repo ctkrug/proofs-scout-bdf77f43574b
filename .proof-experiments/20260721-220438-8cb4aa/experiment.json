@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "20260721-220438-8cb4aa",
+  "name": "erdos530-sidon-semantics-regression-run3",
+  "hypothesis": "The metadata-only AMS repair leaves the independently encoded Sidon semantics control unchanged.",
+  "expected_signal": "Both exact encodings agree on all 512 subsets of {-4,...,4}, with the weak-Sidon and ordered-pair negative controls still separating.",
+  "command": [
+    "python3",
+    "checks/check_sidon_semantics.py"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 60,
+  "memory_limit_mb": 512,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-21T22:04:38.929288+00:00",
+  "finished_at": "2026-07-21T22:04:39.052356+00:00",
+  "duration_seconds": 0.123,
+  "returncode": 0,
+  "timed_out": false,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "98f7ccc7d9d8787d88f5ceb46ec2871cb39343e9",
+  "source_urls": [
+    "https://www.erdosproblems.com/530"
+  ],
+  "input_artifacts": {
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/check_sidon_semantics.py": "61e1779dcad8af8eca614d1f3c87755ea55605ea6e69a748a6803db6d0d82304"
+  },
+  "peak_child_memory_rusage": 17792,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "4022335b57914d27fce7bfcba46b793d08c21becbbe0a6b6e6a28202184f2925",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

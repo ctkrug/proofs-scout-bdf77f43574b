@@ -1,0 +1,4 @@
+8f6e745798379104379da0b5c28c25315489890f
+208af82a29f35bf60d55f86669f7794cf30aae39d71eb24968f255b8cfa771c9  /root/proof-factory/research/scout-bdf77f43574b/workspace/FormalConjectures/ErdosProblems/530.lean
+208af82a29f35bf60d55f86669f7794cf30aae39d71eb24968f255b8cfa771c9  /root/proof-factory/research/scout-bdf77f43574b/workspace/.upstream/formal-conjectures/FormalConjectures/ErdosProblems/530.lean
+Lake version 5.0.0-src+db93fe1 (Lean version 4.27.0)
