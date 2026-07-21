@@ -39,5 +39,10 @@
     "output_tokens": 2010,
     "reasoning_output_tokens": 1031
   },
-  "last_attempt_at": "2026-07-20T19:52:51.807779+00:00"
+  "last_attempt_at": "2026-07-20T19:52:51.807779+00:00",
+  "campaign_state": "active",
+  "campaign_started_at": "2026-07-21T15:14:41.303998+00:00",
+  "campaign_start_research_attempt_count": 1,
+  "campaign_min_runs": 25,
+  "campaign_decision": "resumed after easier candidate #3688 was screened out for an active upstream PR; continue the focused campaign while the next easier unclaimed issue is audited"
 }

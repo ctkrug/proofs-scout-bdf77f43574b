@@ -6,6 +6,6 @@
   "lane": "easy",
   "github_owner": "ctkrug",
   "github_repository": "proofs-scout-bdf77f43574b",
-  "visibility_policy": "private-until-explicit-human-release",
+  "visibility_policy": "public-research-history",
   "canonical_engine": "https://github.com/ctkrug/proofs"
 }

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "20260721-184333-13112b",
+  "name": "erdos530-source-target-wfail",
+  "hypothesis": "The candidate identified by SHA-256 50f3081d7647c1a892356043e55a96d8720aeea6ba64cfc89754fa79da4ef6e4 passes the repository-required warning-fatal source-path target build at Lean 4.27.0",
+  "expected_signal": "lake --wfail build FormalConjectures/ErdosProblems/530.lean exits 0",
+  "command": [
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "/root/.cache/proof-factory/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+    "--dir",
+    ".upstream/formal-conjectures",
+    "--wfail",
+    "build",
+    "FormalConjectures/ErdosProblems/530.lean"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 1800,
+  "memory_limit_mb": 4096,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-21T18:43:33.865369+00:00",
+  "finished_at": "2026-07-21T18:45:20.787592+00:00",
+  "duration_seconds": 106.924,
+  "returncode": 1,
+  "timed_out": false,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "b2a0f0f2c8408f389f27c724998f296c4c57792b",
+  "source_urls": [
+    "https://github.com/google-deepmind/formal-conjectures"
+  ],
+  "input_artifacts": {
+    "/mnt/volume_sfo3_1784567780659/proof-factory-cache/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake": "6ee60352946250468cf340ec68fcbe6c11c0db7b25d9fb4ae38ecab8e6178b48",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/FormalConjectures/ErdosProblems/530.lean": "50f3081d7647c1a892356043e55a96d8720aeea6ba64cfc89754fa79da4ef6e4"
+  },
+  "peak_child_memory_rusage": 449152,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "339962ce01c7529a685916a98b6b290de2eebbd3d86346b22daede2bc9bd4e1d"
+  }
+}

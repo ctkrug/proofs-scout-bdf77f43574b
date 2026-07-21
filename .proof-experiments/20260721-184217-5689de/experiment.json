@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "20260721-184217-5689de",
+  "name": "erdos530-named-target-discriminator",
+  "hypothesis": "At pinned Lean 4.27.0 and Formal Conjectures commit 8f6e745798379104379da0b5c28c25315489890f, the named Lake target FormalConjectures.ErdosProblems.530 builds the byte-identical candidate",
+  "expected_signal": "Exit 0; otherwise preserve the exact target-resolution failure for comparison with direct lake lean",
+  "command": [
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "/root/.cache/proof-factory/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+    "--dir",
+    ".upstream/formal-conjectures",
+    "build",
+    "FormalConjectures.ErdosProblems.530"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 1800,
+  "memory_limit_mb": 4096,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-21T18:42:17.056111+00:00",
+  "finished_at": "2026-07-21T18:42:51.730783+00:00",
+  "duration_seconds": 34.675,
+  "returncode": 1,
+  "timed_out": false,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "b2a0f0f2c8408f389f27c724998f296c4c57792b",
+  "source_urls": [
+    "https://www.erdosproblems.com/530"
+  ],
+  "input_artifacts": {
+    "/mnt/volume_sfo3_1784567780659/proof-factory-cache/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake": "6ee60352946250468cf340ec68fcbe6c11c0db7b25d9fb4ae38ecab8e6178b48"
+  },
+  "peak_child_memory_rusage": 514492,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "d8328159e26c265c6be4338c1e6746e7cac9efa6dea6f061808547f0defb0f9d",
+    "stderr.txt": "c4a27db198c4d8632369ee6102944ef46e83c20d685f7c17a6aaff9cfcfc710f"
+  }
+}

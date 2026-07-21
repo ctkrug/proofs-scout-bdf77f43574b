@@ -1,0 +1,5 @@
+✖ [2/2] Running FormalConjectures.ErdosProblems.530
+error: no such file or directory (error code: 2)
+  file: 
+Some required targets logged failures:
+- FormalConjectures.ErdosProblems.530

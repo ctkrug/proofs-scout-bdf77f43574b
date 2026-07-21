@@ -1,0 +1,22 @@
+{
+  "event": "submitted",
+  "schema_version": 1,
+  "id": "lab-scout-bdf77f43574b-eec7321621e3",
+  "problem_id": "scout-bdf77f43574b",
+  "name": "erdos530-correct-numeric-target-wfail",
+  "hypothesis": "The byte-identical candidate passes the repository-required warning-fatal build when Lake receives the disambiguated numeric module target +FormalConjectures.ErdosProblems.«530»",
+  "expected_signal": "Driver records matching candidate hashes; lake --wfail build exits 0 and produces the 530 olean, or preserves the first warning/elaboration error",
+  "source_urls": [
+    "https://github.com/google-deepmind/formal-conjectures"
+  ],
+  "command": [
+    "checks/run_erdos530_lean_build.sh"
+  ],
+  "seed": 0,
+  "segment_seconds": 1200,
+  "memory_mb": 1100,
+  "max_segments": 1,
+  "segment": 1,
+  "checkpoint_path": "research/lab_erdos530_build_checkpoint.json",
+  "submitted_at": "2026-07-21T18:50:38.702493+00:00"
+}
