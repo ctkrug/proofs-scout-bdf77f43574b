@@ -1,5 +1,5 @@
 {
-  "naive_cost": "Run the full Formal Conjectures repository build after replacing a duplicate local Sidon definition with the existing project API.",
+  "naive_cost": "Run the full Formal Conjectures repository build (975 local Lean source modules across FormalConjectures and FormalConjecturesForMathlib, plus transitive dependencies) after replacing a duplicate local Sidon definition with the existing project API.",
   "opportunities_considered": [
     "Build only the disambiguated numeric module target.",
     "Reuse the pinned manifest-identical dependency cache and existing transitive OLean files.",
@@ -9,7 +9,7 @@
     "Independently prove the removed local predicate equivalent to the reused project predicate before rebuilding."
   ],
   "chosen_reductions": "One exact module rather than the repository; cached dependencies rather than rehydration; exact byte/hash prefilters; a separately compiled equivalence theorem as the semantic guard.",
-  "expected_throughput_gain": "8037 unrelated repository targets are excluded. The previous successful exact target took 887 seconds wall time; the refactor changes one definition use and three tests.",
+  "expected_throughput_gain": "Only the named Problem 530 module is requested instead of every project root, but the exact reduction relative to a full build is unmeasured. The prior exact-target log itself reported an 8038-job dependency closure and took 887 seconds; those 8038 jobs must not be described as eliminated.",
   "soundness_basis": "The prefilters are exact byte/hash checks. The independent Lean audit proves the old and project predicates extensionally equivalent. Lake invokes the pinned Lean kernel on the exact module with --wfail and requires a nonempty OLean.",
   "remains_uncompressed": "The module's transitive imports still load normally. Full repository CI, placement review for the new extremal definitions, and maintainer semantic review remain separate gates."
 }
