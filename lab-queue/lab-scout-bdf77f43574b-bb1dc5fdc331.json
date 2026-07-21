@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "id": "lab-scout-bdf77f43574b-bb1dc5fdc331",
+  "problem_id": "scout-bdf77f43574b",
+  "name": "erdos530-mathlib-finitetype-cache-control",
+  "hypothesis": "The pinned Mathlib FiniteType OLean is independently readable; if this small import passes, the umbrella-target failure is aggregate resource pressure rather than a missing or corrupt cache file.",
+  "expected_signal": "The exact import exits zero and prints the checked declaration; otherwise retain the first cache compatibility or read error.",
+  "decision_value": "Separates a corrupt cache artifact from aggregate FormalConjecturesUtil import pressure before any further target retry.",
+  "efficiency_design": {
+    "naive_cost": "Rehydrate and rebuild a second 6.9 GiB Mathlib tree, then invoke a full repository build before learning whether the one numeric module target elaborates.",
+    "opportunities_considered": [
+      "Reuse the manifest-identical pinned Mathlib package and compiled-object cache instead of cloning or hydrating it again.",
+      "Build only the disambiguated numeric module target before any full-repository validation.",
+      "Use one Lean thread and a warning-fatal invocation under the checkpointed resource-limited lab.",
+      "Hash the driver and candidate as immutable lab inputs and record checkout, candidate, manifest, toolchain, stdout, and stderr hashes.",
+      "Retain the prior finite semantic controls rather than rerunning an arbitrary larger cutoff."
+    ],
+    "chosen_reductions": "Share only the manifest-identical package cache, keep workspace build outputs isolated, and run one exact +FormalConjectures.ErdosProblems.«530» target with --wfail.",
+    "expected_throughput_gain": "Avoids a second multi-GiB download and turns the discriminator into one bounded target build; expected wall time is minutes rather than a full hydrate plus full build.",
+    "soundness_basis": "Both checkouts have identical lake-manifest SHA-256, Mathlib commit, and Lean 4.27 toolchain. Lake and Lean kernel perform the target check; warning-fatal mode rejects warnings; durable lab records retain exact inputs and outputs.",
+    "remains_uncompressed": "The target module and its transitive local Formal Conjectures support imports still compile normally. A later full repository build, repository CI, and human semantic review remain separate required gates."
+  },
+  "source_urls": [
+    "https://github.com/leanprover-community/mathlib4"
+  ],
+  "command": [
+    "checks/run_import_control.sh",
+    "checks/import_finitetype.lean"
+  ],
+  "seed": 0,
+  "segment_seconds": 300,
+  "memory_mb": 16384,
+  "max_segments": 1,
+  "segment": 1,
+  "pilot_segments": 1,
+  "review_every_segments": 1,
+  "checkpoint_path": "",
+  "progress_path": "",
+  "continuation_thresholds": {
+    "min_throughput_per_second": 0.0,
+    "max_artifact_growth_bytes": 0,
+    "require_correctness_checks": true
+  },
+  "submitted_at": "2026-07-21T21:51:37.435653+00:00",
+  "workspace_git_commit": "ac33941b4348cd6c35a2eed83f2d328fb60c3089",
+  "input_sha256": {
+    "checks/import_finitetype.lean": "aeeecead7a08c53f5248683b0fcf8265e20ecfa1ba9e8d5b7806e0ea03eefdfb",
+    "checks/run_import_control.sh": "773a39ed57f5c181be9f5b8963bf2f46baabcaf2c50ec9b7a423450e3537b320"
+  },
+  "spec_sha256": "4fbdd01138ae77d01f299df71585a8961d36aed2aea9a456f95a0390e5a87c5f"
+}
