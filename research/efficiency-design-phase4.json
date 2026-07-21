@@ -1,0 +1,14 @@
+{
+  "naive_cost": "Rehydrate and rebuild a second 6.9 GiB Mathlib tree, then invoke a full repository build before learning whether the one numeric module target elaborates.",
+  "opportunities_considered": [
+    "Reuse the manifest-identical pinned Mathlib package and compiled-object cache instead of cloning or hydrating it again.",
+    "Build only the disambiguated numeric module target before any full-repository validation.",
+    "Use one Lean thread and a warning-fatal invocation under the checkpointed resource-limited lab.",
+    "Hash the driver and candidate as immutable lab inputs and record checkout, candidate, manifest, toolchain, stdout, and stderr hashes.",
+    "Retain the prior finite semantic controls rather than rerunning an arbitrary larger cutoff."
+  ],
+  "chosen_reductions": "Share only the manifest-identical package cache, keep workspace build outputs isolated, and run one exact +FormalConjectures.ErdosProblems.«530» target with --wfail.",
+  "expected_throughput_gain": "Avoids a second multi-GiB download and turns the discriminator into one bounded target build; expected wall time is minutes rather than a full hydrate plus full build.",
+  "soundness_basis": "Both checkouts have identical lake-manifest SHA-256, Mathlib commit, and Lean 4.27 toolchain. Lake and Lean kernel perform the target check; warning-fatal mode rejects warnings; durable lab records retain exact inputs and outputs.",
+  "remains_uncompressed": "The target module and its transitive local Formal Conjectures support imports still compile normally. A later full repository build, repository CI, and human semantic review remain separate required gates."
+}
