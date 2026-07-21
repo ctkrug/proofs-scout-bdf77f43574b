@@ -51,13 +51,13 @@ def GuaranteedSidonSize (N k : ℕ) : Prop :=
     ∃ S : Finset ℝ, S ⊆ A ∧ S.card = k ∧ IsSidon S
 
 /-- Every finite set has the empty Sidon subset. -/
-@[category API]
+@[category API, AMS 5 11]
 theorem guaranteedSidonSize_zero (N : ℕ) : GuaranteedSidonSize N 0 := by
   intro A hA
   exact ⟨∅, by simp [IsSidon]⟩
 
 /-- A guaranteed subset size cannot exceed the size of its ambient set. -/
-@[category API]
+@[category API, AMS 5 11]
 theorem GuaranteedSidonSize.le {N k : ℕ} (h : GuaranteedSidonSize N k) : k ≤ N := by
   classical
   obtain ⟨A, hA⟩ := Finset.exists_card_eq (α := ℝ) N
@@ -74,35 +74,35 @@ noncomputable def ell (N : ℕ) : ℕ :=
     exact Nat.findGreatest (GuaranteedSidonSize N) N
 
 /-- The extremal function is bounded by the ambient cardinality. -/
-@[category API]
+@[category API, AMS 5 11]
 theorem ell_le (N : ℕ) : ell N ≤ N := by
   classical
   exact Nat.findGreatest_le N
 
 /-- The value selected by `ell` is itself guaranteed. -/
-@[category API]
+@[category API, AMS 5 11]
 theorem guaranteedSidonSize_ell (N : ℕ) : GuaranteedSidonSize N (ell N) := by
   classical
   exact Nat.findGreatest_spec (Nat.zero_le N) (guaranteedSidonSize_zero N)
 
 /-- Every guaranteed size is at most `ell N`. -/
-@[category API]
+@[category API, AMS 5 11]
 theorem GuaranteedSidonSize.le_ell {N k : ℕ} (h : GuaranteedSidonSize N k) : k ≤ ell N := by
   classical
   exact Nat.le_findGreatest h.le h
 
 /-- The empty set is Sidon. -/
-@[category test]
+@[category test, AMS 5 11]
 theorem isSidon_empty : IsSidon (∅ : Finset ℝ) := by
   simp [IsSidon]
 
 /-- Every singleton is Sidon. -/
-@[category test]
+@[category test, AMS 5 11]
 theorem isSidon_singleton (x : ℝ) : IsSidon {x} := by
   simp [IsSidon]
 
 /-- The set `{0, 1, 2}` is not Sidon because `0 + 2 = 1 + 1`. -/
-@[category test]
+@[category test, AMS 5 11]
 theorem not_isSidon_zero_one_two : ¬ IsSidon ({0, 1, 2} : Finset ℝ) := by
   intro h
   have h' := h 0 (by simp) 2 (by simp) 1 (by simp) 1 (by simp) (by norm_num)

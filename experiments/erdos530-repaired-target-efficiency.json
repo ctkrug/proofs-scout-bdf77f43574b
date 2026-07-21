@@ -1,0 +1,14 @@
+{
+  "naive_cost": "Run the full Formal Conjectures repository build after every metadata edit, traversing thousands of unrelated modules.",
+  "opportunities_considered": [
+    "Build only the disambiguated numeric module target.",
+    "Reuse the pinned manifest-identical dependency cache and existing transitive OLean files.",
+    "Use one Lean thread under a fixed 16 GiB cap.",
+    "Fail before compilation unless the workspace and checkout candidates are byte-identical and match the repaired candidate hash.",
+    "Require a nonempty kernel artifact and hash it after the warning-fatal build."
+  ],
+  "chosen_reductions": "One exact module rather than the repository; cached dependencies rather than rehydration; byte comparison and a fixed source hash as sound prefilters.",
+  "expected_throughput_gain": "8037 unrelated repository targets are excluded. The remaining dominant operation is elaboration of one source body plus import loading; the previous cold warning-fatal target took 758 seconds.",
+  "soundness_basis": "The source prefilters are exact byte/hash checks. Lake invokes the pinned Lean kernel on the exact module with --wfail, and the driver requires a nonempty resulting OLean.",
+  "remains_uncompressed": "The module's transitive imports still load normally. Full repository CI and maintainer semantic review remain independent external gates."
+}

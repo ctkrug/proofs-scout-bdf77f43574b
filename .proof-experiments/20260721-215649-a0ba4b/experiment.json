@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "20260721-215649-a0ba4b",
+  "name": "erdos530-direct-warning-fatal-elaboration-run3",
+  "hypothesis": "The byte-identical Erdős 530 candidate elaborates directly with warnings fatal under the pinned Lean 4.27.0 environment.",
+  "expected_signal": "Exit 0 with empty stderr; otherwise preserve the first exact warning or elaboration error.",
+  "command": [
+    "env",
+    "LEAN_NUM_THREADS=1",
+    "/root/.cache/proof-factory/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+    "--dir",
+    ".upstream/formal-conjectures",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "FormalConjectures/ErdosProblems/530.lean"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 300,
+  "memory_limit_mb": 16384,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-21T21:56:49.303756+00:00",
+  "finished_at": "2026-07-21T22:01:49.435337+00:00",
+  "duration_seconds": 300.133,
+  "returncode": 124,
+  "timed_out": true,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "cc87fe621692c37337504bdbc501c58dc32d1b28",
+  "source_urls": [
+    "https://www.erdosproblems.com/530"
+  ],
+  "input_artifacts": {
+    "/root/.cache/proof-factory/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake": "6ee60352946250468cf340ec68fcbe6c11c0db7b25d9fb4ae38ecab8e6178b48",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/FormalConjectures/ErdosProblems/530.lean": "50f3081d7647c1a892356043e55a96d8720aeea6ba64cfc89754fa79da4ef6e4"
+  },
+  "peak_child_memory_rusage": 785776,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
