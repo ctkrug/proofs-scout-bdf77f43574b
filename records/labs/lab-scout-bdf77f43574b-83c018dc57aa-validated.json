@@ -1,0 +1,11 @@
+{
+  "event": "validated",
+  "id": "lab-scout-bdf77f43574b-83c018dc57aa",
+  "review": {
+    "decision": "validate",
+    "reason": "The durable record reports return code 0; source and driver hashes match the submitted inputs; stderr is empty; stdout records the warning-fatal target success and a nonempty 126000-byte OLean with the expected hash.",
+    "reviewer": "proof-factory:scout-bdf77f43574b-20260721-223958-e0f52b",
+    "reviewed_at": "2026-07-21T22:42:30.339389+00:00",
+    "segment": 1
+  }
+}
