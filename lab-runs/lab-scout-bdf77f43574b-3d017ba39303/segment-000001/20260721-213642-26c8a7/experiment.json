@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "20260721-213642-26c8a7",
+  "name": "erdos530-correct-numeric-target-wfail-phase4-physical-envelope segment 1/1",
+  "hypothesis": "The immutable candidate passes the repository warning-fatal build under the disambiguated numeric target within the measured Lean address-space and physical-memory envelopes.",
+  "expected_signal": "Driver and candidate hashes match; lake --wfail build exits zero and produces a nonempty 530.olean, or the first exact warning/elaboration failure is retained.",
+  "command": [
+    "checks/run_erdos530_lean_build.sh",
+    "FormalConjectures/ErdosProblems/530.lean"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 1200,
+  "memory_limit_mb": 16384,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-21T21:36:42.307449+00:00",
+  "finished_at": "2026-07-21T21:50:39.425024+00:00",
+  "duration_seconds": 837.119,
+  "returncode": 1,
+  "timed_out": false,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "74ddb933f4d612ad423ec55091a275abb716aece",
+  "source_urls": [
+    "https://github.com/google-deepmind/formal-conjectures/issues/773"
+  ],
+  "input_artifacts": {
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/run_erdos530_lean_build.sh": "dbdeb901c19808cb9f06785e269b79690ba7b5cfe368db7e655077015a2ff6c2",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/FormalConjectures/ErdosProblems/530.lean": "50f3081d7647c1a892356043e55a96d8720aeea6ba64cfc89754fa79da4ef6e4"
+  },
+  "peak_child_memory_rusage": 2501320,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "40c073f825619a57f465296440bbb9761370ea0620dde32293a79f840803fa49",
+    "stderr.txt": "c4a27db198c4d8632369ee6102944ef46e83c20d685f7c17a6aaff9cfcfc710f"
+  }
+}
