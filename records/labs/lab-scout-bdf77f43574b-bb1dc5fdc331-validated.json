@@ -1,0 +1,11 @@
+{
+  "event": "validated",
+  "id": "lab-scout-bdf77f43574b-bb1dc5fdc331",
+  "review": {
+    "decision": "validate",
+    "reason": "The isolated pinned Mathlib FiniteType import exited zero in 23.018 seconds with immutable input hashes and empty stderr, proving the cache artifact itself is readable; this validates only the control, not the full #530 target.",
+    "reviewer": "proof-factory-remediation-phase4",
+    "reviewed_at": "2026-07-21T21:52:42.569842+00:00",
+    "segment": 1
+  }
+}
