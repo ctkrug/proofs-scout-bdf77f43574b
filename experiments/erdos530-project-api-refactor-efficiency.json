@@ -1,0 +1,15 @@
+{
+  "naive_cost": "Run the full Formal Conjectures repository build after replacing a duplicate local Sidon definition with the existing project API.",
+  "opportunities_considered": [
+    "Build only the disambiguated numeric module target.",
+    "Reuse the pinned manifest-identical dependency cache and existing transitive OLean files.",
+    "Use one Lean thread under a fixed 16 GiB cap.",
+    "Fail before compilation unless the workspace and checkout candidates are byte-identical and match the refactored candidate hash.",
+    "Require a nonempty kernel artifact and hash it after the warning-fatal build.",
+    "Independently prove the removed local predicate equivalent to the reused project predicate before rebuilding."
+  ],
+  "chosen_reductions": "One exact module rather than the repository; cached dependencies rather than rehydration; exact byte/hash prefilters; a separately compiled equivalence theorem as the semantic guard.",
+  "expected_throughput_gain": "8037 unrelated repository targets are excluded. The previous successful exact target took 887 seconds wall time; the refactor changes one definition use and three tests.",
+  "soundness_basis": "The prefilters are exact byte/hash checks. The independent Lean audit proves the old and project predicates extensionally equivalent. Lake invokes the pinned Lean kernel on the exact module with --wfail and requires a nonempty OLean.",
+  "remains_uncompressed": "The module's transitive imports still load normally. Full repository CI, placement review for the new extremal definitions, and maintainer semantic review remain separate gates."
+}

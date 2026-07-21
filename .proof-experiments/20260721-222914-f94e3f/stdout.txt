@@ -1,0 +1,1 @@
+/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/Erdos530SemanticAudit.lean:8:0: error: failed to read file '/mnt/volume_sfo3_1784567780659/proof-factory-cache/formal-conjectures/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/FiniteType.olean'

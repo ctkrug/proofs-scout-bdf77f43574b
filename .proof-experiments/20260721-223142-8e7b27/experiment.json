@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "20260721-223142-8e7b27",
+  "name": "erdos530-project-sidon-equivalence-audit-retry",
+  "hypothesis": "The candidate finite-set Sidon predicate is extensionally equivalent to the repository IsSidon API, including repeated summands and swapped-pair triviality.",
+  "expected_signal": "Lean kernel accepts the independent equivalence plus repeated-summand and swap controls with no diagnostics; any elaboration failure identifies the first mismatch.",
+  "command": [
+    "/root/.cache/proof-factory/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+    "--dir",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/.upstream/formal-conjectures",
+    "env",
+    "lean",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/Erdos530SemanticAudit.lean"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 120,
+  "memory_limit_mb": 4096,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-21T22:31:42.570751+00:00",
+  "finished_at": "2026-07-21T22:32:11.540926+00:00",
+  "duration_seconds": 28.97,
+  "returncode": 1,
+  "timed_out": false,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "eff216e29ac88bbe6b4bb87854c445379e72fa2b",
+  "source_urls": [
+    "https://www.erdosproblems.com/530"
+  ],
+  "input_artifacts": {
+    "/root/.cache/proof-factory/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake": "6ee60352946250468cf340ec68fcbe6c11c0db7b25d9fb4ae38ecab8e6178b48",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/Erdos530SemanticAudit.lean": "368e8cc7a065ebaa3848f9f0c0812886d0fa3a99b933512269c9bb45427767c5"
+  },
+  "peak_child_memory_rusage": 2190216,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "1123d362b62a9cc6fb6b0fc6c2ae62341999e60ef29e7eb03f0da3f1f215e2f0",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -4,7 +4,7 @@ set -euo pipefail
 workspace_dir="/root/proof-factory/research/scout-bdf77f43574b/workspace"
 checkout_dir="$workspace_dir/.upstream/formal-conjectures"
 lake_bin="/root/.cache/proof-factory/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake"
-expected_candidate_sha256="208af82a29f35bf60d55f86669f7794cf30aae39d71eb24968f255b8cfa771c9"
+expected_candidate_sha256="e27b8c80ed9edb57989006cc9bd299fdd58331c2b2a30b69ec9721b409562a2e"
 candidate="$workspace_dir/FormalConjectures/ErdosProblems/530.lean"
 checkout_candidate="$checkout_dir/FormalConjectures/ErdosProblems/530.lean"
 olean="$checkout_dir/.lake/build/lib/lean/FormalConjectures/ErdosProblems/530.olean"

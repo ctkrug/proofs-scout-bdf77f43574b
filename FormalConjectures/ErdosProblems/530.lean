@@ -38,17 +38,11 @@ open scoped Asymptotics
 
 namespace Erdos530
 
-/-- A finite set is Sidon when equality of two pairwise sums forces equality of the
-corresponding unordered pairs. Repetition of a summand is allowed. -/
-def IsSidon (S : Finset ℝ) : Prop :=
-  ∀ a ∈ S, ∀ b ∈ S, ∀ c ∈ S, ∀ d ∈ S,
-    a + b = c + d → (a = c ∧ b = d) ∨ (a = d ∧ b = c)
-
 /-- `GuaranteedSidonSize N k` means that every `N`-element finite set of reals contains an
-exactly `k`-element Sidon subset. -/
+exactly `k`-element subset which is Sidon according to the reusable project definition. -/
 def GuaranteedSidonSize (N k : ℕ) : Prop :=
   ∀ A : Finset ℝ, A.card = N →
-    ∃ S : Finset ℝ, S ⊆ A ∧ S.card = k ∧ IsSidon S
+    ∃ S : Finset ℝ, S ⊆ A ∧ S.card = k ∧ IsSidon (S : Set ℝ)
 
 /-- Every finite set has the empty Sidon subset. -/
 @[category API, AMS 5 11]
@@ -93,17 +87,17 @@ theorem GuaranteedSidonSize.le_ell {N k : ℕ} (h : GuaranteedSidonSize N k) : k
 
 /-- The empty set is Sidon. -/
 @[category test, AMS 5 11]
-theorem isSidon_empty : IsSidon (∅ : Finset ℝ) := by
+theorem isSidon_empty : IsSidon (∅ : Set ℝ) := by
   simp [IsSidon]
 
 /-- Every singleton is Sidon. -/
 @[category test, AMS 5 11]
-theorem isSidon_singleton (x : ℝ) : IsSidon {x} := by
+theorem isSidon_singleton (x : ℝ) : IsSidon ({x} : Set ℝ) := by
   simp [IsSidon]
 
 /-- The set `{0, 1, 2}` is not Sidon because `0 + 2 = 1 + 1`. -/
 @[category test, AMS 5 11]
-theorem not_isSidon_zero_one_two : ¬ IsSidon ({0, 1, 2} : Finset ℝ) := by
+theorem not_isSidon_zero_one_two : ¬ IsSidon ({0, 1, 2} : Set ℝ) := by
   intro h
   have h' := h 0 (by simp) 2 (by simp) 1 (by simp) 1 (by simp) (by norm_num)
   norm_num at h'

@@ -1,0 +1,3 @@
+/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/Erdos530SemanticAudit.lean:18:22: error: unexpected token; expected ']'
+/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/Erdos530SemanticAudit.lean:28:22: error: unexpected token; expected ']'
+/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/Erdos530SemanticAudit.lean:36:22: error: unexpected token; expected ']'
