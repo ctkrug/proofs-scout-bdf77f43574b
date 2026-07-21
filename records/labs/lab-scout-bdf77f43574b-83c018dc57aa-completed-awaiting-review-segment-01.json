@@ -1,0 +1,70 @@
+{
+  "event": "completed_awaiting_review",
+  "schema_version": 2,
+  "id": "lab-scout-bdf77f43574b-83c018dc57aa",
+  "problem_id": "scout-bdf77f43574b",
+  "name": "erdos530-repaired-ams-warning-fatal-target-run3",
+  "hypothesis": "Adding AMS 5 11 metadata to the eight supporting declarations removes all warning-fatal target failures without changing the mathematical interface.",
+  "expected_signal": "Exact candidate hash and byte comparison pass; lake --wfail target exits 0; a nonempty 530.olean hash is recorded. Any warning or elaboration error redirects to that first discrepancy.",
+  "decision_value": "A pass closes the only observed repository-linter discrepancy and advances the formalization to clean-checkout/full-CI and human semantic review; a failure precisely locates the next repair.",
+  "efficiency_design": {
+    "naive_cost": "Run the full Formal Conjectures repository build after every metadata edit, traversing thousands of unrelated modules.",
+    "opportunities_considered": [
+      "Build only the disambiguated numeric module target.",
+      "Reuse the pinned manifest-identical dependency cache and existing transitive OLean files.",
+      "Use one Lean thread under a fixed 16 GiB cap.",
+      "Fail before compilation unless the workspace and checkout candidates are byte-identical and match the repaired candidate hash.",
+      "Require a nonempty kernel artifact and hash it after the warning-fatal build."
+    ],
+    "chosen_reductions": "One exact module rather than the repository; cached dependencies rather than rehydration; byte comparison and a fixed source hash as sound prefilters.",
+    "expected_throughput_gain": "8037 unrelated repository targets are excluded. The remaining dominant operation is elaboration of one source body plus import loading; the previous cold warning-fatal target took 758 seconds.",
+    "soundness_basis": "The source prefilters are exact byte/hash checks. Lake invokes the pinned Lean kernel on the exact module with --wfail, and the driver requires a nonempty resulting OLean.",
+    "remains_uncompressed": "The module's transitive imports still load normally. Full repository CI and maintainer semantic review remain independent external gates."
+  },
+  "source_urls": [
+    "https://github.com/google-deepmind/formal-conjectures/issues/773"
+  ],
+  "command": [
+    "checks/run_erdos530_lean_build.sh",
+    "FormalConjectures/ErdosProblems/530.lean"
+  ],
+  "seed": 0,
+  "segment_seconds": 1200,
+  "memory_mb": 16384,
+  "max_segments": 1,
+  "segment": 1,
+  "pilot_segments": 1,
+  "review_every_segments": 1,
+  "checkpoint_path": "",
+  "progress_path": "",
+  "continuation_thresholds": {
+    "min_throughput_per_second": 0.0,
+    "max_artifact_growth_bytes": 0,
+    "require_correctness_checks": true
+  },
+  "submitted_at": "2026-07-21T22:03:42.908908+00:00",
+  "workspace_git_commit": "cc87fe621692c37337504bdbc501c58dc32d1b28",
+  "input_sha256": {
+    "FormalConjectures/ErdosProblems/530.lean": "208af82a29f35bf60d55f86669f7794cf30aae39d71eb24968f255b8cfa771c9",
+    "checks/run_erdos530_lean_build.sh": "4280849bf03b69bfde4bffee04c171d962e109030a65a5924d0c920add0ea765"
+  },
+  "spec_sha256": "5706d9e30b28cd84884580dc6b4fc141a7d5a999843129b324f17c4cccf57448",
+  "recorded_at": "2026-07-21T22:21:56.549500+00:00",
+  "job_id": "lab-scout-bdf77f43574b-83c018dc57aa",
+  "returncode": 0,
+  "duration_seconds": 886.989114,
+  "checkpoint_exists": false,
+  "checkpoint_sha256": "",
+  "progress": {
+    "complete": true,
+    "completed_units": 1,
+    "total_units": 1,
+    "correctness_checks_passed": true,
+    "decision_value_active": true
+  },
+  "threshold_failures": [],
+  "runner_result": "{\n  \"experiment_dir\": \"/root/proof-factory/research/scout-bdf77f43574b/workspace/lab-runs/lab-scout-bdf77f43574b-83c018dc57aa/segment-000001/20260721-220709-5122ed\",\n  \"schema_version\": 1,\n  \"id\": \"20260721-220709-5122ed\",\n  \"name\": \"erdos530-repaired-ams-warning-fatal-target-run3 segment 1/1\",\n  \"hypothesis\": \"Adding AMS 5 11 metadata to the eight supporting declarations removes all warning-fatal target failures without changing the mathematical interface.\",\n  \"expected_signal\": \"Exact candidate hash and byte comparison pass; lake --wfail target exits 0; a nonempty 530.olean hash is recorded. Any warning or elaboration error redirects to that first discrepancy.\",\n  \"command\": [\n    \"checks/run_erdos530_lean_build.sh\",\n    \"FormalConjectures/ErdosProblems/530.lean\"\n  ],\n  \"cwd\": \"/root/proof-factory/research/scout-bdf77f43574b/workspace\",\n  \"seed\": 0,\n  \"timeout_seconds\": 1200,\n  \"memory_limit_mb\": 16384,\n  \"memory_limit_enforced\": true,\n  \"started_at\": \"2026-07-21T22:07:09.644457+00:00\",\n  \"finished_at\": \"2026-07-21T22:21:56.170768+00:00\",\n  \"duration_seconds\": 886.529,\n  \"returncode\": 0,\n  \"timed_out\": false,\n  \"python\": \"3.12.3\",\n  \"platform\": \"Linux-6.8.0-124-generic-x86_64-with-glibc2.39\",\n  \"git_commit\": \"98f7ccc7d9d8787d88f5ceb46ec2871cb39343e9\",\n  \"source_urls\": [\n    \"https://github.com/google-deepmind/formal-conjectures/issues/773\"\n  ],\n  \"input_artifacts\": {\n    \"/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/run_erdos530_lean_build.sh\": \"4280849bf03b69bfde4bffee04c171d962e109030a65a5924d0c920add0ea765\",\n    \"/root/proof-factory/research/scout-bdf77f43574b/workspace/FormalConjectures/ErdosProblems/530.lean\": \"208af82a29f35bf60d55f86669f7794cf30aae39d71eb24968f255b8cfa771c9\"\n  },\n  \"peak_child_memory_rusage\": 2711332,\n  \"peak_child_memory_unit\": \"kilobytes\",\n  \"artifacts\": {\n    \"stdout.txt\": \"71a3a3eaadcb9dc53237192bda1c39c5e2ff5db6f23b21a03a6712f2fcc1416f\",\n    \"stderr.txt\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"\n  }\n}\n",
+  "runner_error": "",
+  "output_root": "lab-runs/lab-scout-bdf77f43574b-83c018dc57aa/segment-000001",
+  "research_event_id": "event-scout-bdf77f43574b-8a601c589226"
+}

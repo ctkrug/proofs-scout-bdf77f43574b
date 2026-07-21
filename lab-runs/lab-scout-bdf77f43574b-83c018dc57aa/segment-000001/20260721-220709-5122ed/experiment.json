@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "20260721-220709-5122ed",
+  "name": "erdos530-repaired-ams-warning-fatal-target-run3 segment 1/1",
+  "hypothesis": "Adding AMS 5 11 metadata to the eight supporting declarations removes all warning-fatal target failures without changing the mathematical interface.",
+  "expected_signal": "Exact candidate hash and byte comparison pass; lake --wfail target exits 0; a nonempty 530.olean hash is recorded. Any warning or elaboration error redirects to that first discrepancy.",
+  "command": [
+    "checks/run_erdos530_lean_build.sh",
+    "FormalConjectures/ErdosProblems/530.lean"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 1200,
+  "memory_limit_mb": 16384,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-21T22:07:09.644457+00:00",
+  "finished_at": "2026-07-21T22:21:56.170768+00:00",
+  "duration_seconds": 886.529,
+  "returncode": 0,
+  "timed_out": false,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "98f7ccc7d9d8787d88f5ceb46ec2871cb39343e9",
+  "source_urls": [
+    "https://github.com/google-deepmind/formal-conjectures/issues/773"
+  ],
+  "input_artifacts": {
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/run_erdos530_lean_build.sh": "4280849bf03b69bfde4bffee04c171d962e109030a65a5924d0c920add0ea765",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/FormalConjectures/ErdosProblems/530.lean": "208af82a29f35bf60d55f86669f7794cf30aae39d71eb24968f255b8cfa771c9"
+  },
+  "peak_child_memory_rusage": 2711332,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "71a3a3eaadcb9dc53237192bda1c39c5e2ff5db6f23b21a03a6712f2fcc1416f",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
