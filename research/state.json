@@ -1,12 +1,12 @@
 {
-  "epoch_count": 1,
+  "epoch_count": 2,
   "baseline_review": {
     "status": "completed",
     "reviewed_at": "2026-07-20T19:49:25Z",
     "source_attempt_id": "baseline-erdos530-20260720",
     "requirement": "Exact statement/status, historical and current methods, closest work, formal repository, tooling, compute scale, and external acceptance path audited."
   },
-  "synthesis_summary": "Problem #530 remains open on the maintained source and unformalized in Formal Conjectures. A May 2026 preprint postdating the source-page edit improves the lower-bound constant but not to the conjectured 1. A scoped Lean candidate and maximality API were drafted. Two independent finite Sidon encodings agree on all 512 subsets of [-4,4], but the actual Lean file is not yet elaborated because this environment lacks the pinned repository/Mathlib dependencies.",
+  "synthesis_summary": "Problem #530 remains open on the maintained source. The scoped Lean candidate and finite semantic controls remain intact. Run 2 showed that the saved bare numeric Lake target and a --dir-relative source target both fail during target addressing, while a direct current-cache attempt failed before source elaboration because the bootstrap support OLean was still being built. The correct disambiguated numeric target +FormalConjectures.ErdosProblems.«530» is now queued as the one-segment warning-fatal lab job lab-scout-bdf77f43574b-eec7321621e3; queueing is not build evidence.",
   "established_facts": [
     {
       "claim": "The maintained page states the min-max Sidon-subset problem over finite subsets of the reals, asks whether ell(N) is asymptotic to sqrt(N), marks it OPEN, and says it is not formalised.",
@@ -31,6 +31,12 @@
       "evidence": ".proof-experiments/20260720-194758-ee6344/stdout.txt; 512 subsets, zero mismatches, script SHA-256 61e1779dcad8af8eca614d1f3c87755ea55605ea6e69a748a6803db6d0d82304",
       "scope": "Every subset of the stated nine-element integer domain only",
       "status": "computed"
+    },
+    {
+      "claim": "At Lake 5.0.0 / Lean 4.27.0, the bare CLI target FormalConjectures.ErdosProblems.530 fails with an empty-path no-such-file error before candidate elaboration; Lake's documented disambiguated numeric module form is +FormalConjectures.ErdosProblems.«530».",
+      "evidence": ".proof-experiments/20260721-184217-5689de and .proof-experiments/20260721-185548-c3172e",
+      "scope": "CLI target addressing in the pinned Formal Conjectures workspace checkout; not a claim about the Lean source",
+      "status": "computed"
     }
   ],
   "strategy_registry": [
@@ -40,14 +46,14 @@
       "fingerprint": "formal-premise-retrieval",
       "mechanism": "Translate the maintained statement using Finset, Nat.findGreatest, and Mathlib asymptotic equivalence; attack semantics with finite controls before pinned elaboration.",
       "status": "active",
-      "first_discriminator": "Run the target build at the repository-pinned Lean 4.27.0 and Mathlib commit, then full lake build."
+      "first_discriminator": "Inspect lab-scout-bdf77f43574b-eec7321621e3, which runs the warning-fatal disambiguated numeric target build; only after it passes submit the full warning-fatal build."
     }
   ],
   "open_leads": [
     {
       "description": "Elaborate the candidate in a current Formal Conjectures checkout.",
       "rationale": "Kernel elaboration is the cheapest decisive test of the contribution.",
-      "next_experiment": "Copy FormalConjectures/ErdosProblems/530.lean into the pinned repository and run lake build FormalConjectures.ErdosProblems.530.",
+      "next_experiment": "Inspect the completed record for lab-scout-bdf77f43574b-eec7321621e3 without resubmitting; on exit 0, submit a separate full lake --wfail build.",
       "priority": "high",
       "status": "open"
     },
@@ -67,6 +73,13 @@
     }
   ],
   "ruled_out": [
+    {
+      "claim_or_route": "Address numeric problem 530 as bare Lake target FormalConjectures.ErdosProblems.530 or as a --dir-relative source path.",
+      "scope": "Lake 5.0.0 target addressing at the pinned Lean 4.27.0 checkout",
+      "reason": "The bare target gives an empty-path no-such-file failure and the relative source path is unknown; both fail before Lean elaboration. The documented disambiguated form is +FormalConjectures.ErdosProblems.«530».",
+      "evidence": ".proof-experiments/20260721-184217-5689de and .proof-experiments/20260721-184333-13112b",
+      "reopen_condition": "Only a Lake version change whose documented target grammar makes either form valid."
+    },
     {
       "claim_or_route": "Use weak Sidon uniqueness that ignores repeated summands.",
       "scope": "Formal statement design",
@@ -91,8 +104,8 @@
   ],
   "next_session": {
     "objective": "Turn the drafted interface into a kernel-checked, externally reviewed Formal Conjectures contribution.",
-    "first_action": "Follow the exact target-build command in CHECKPOINT.md in a network-enabled current repository checkout.",
-    "stop_condition": "Target and full builds pass, only the open theorem contains sorry, and repository review confirms equivalence; otherwise record the first elaboration or semantic discrepancy."
+    "first_action": "Inspect records/labs for lab-scout-bdf77f43574b-eec7321621e3; do not resubmit the already queued correct-target build.",
+    "stop_condition": "If the job passes, submit the full warning-fatal build; otherwise preserve the first dependency, warning, or elaboration discrepancy. Terminal success still requires target build, full build, CI, and human semantic review."
   },
   "cross_problem_brain": {
     "baseline_review": {

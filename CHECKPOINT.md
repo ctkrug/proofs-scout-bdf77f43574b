@@ -1,53 +1,92 @@
 # Continuation checkpoint — Erdős #530 formalization
 
-Last completed epoch: baseline audit, 2026-07-20 UTC.
+Last completed epoch: discovery run 2, 2026-07-21 UTC.
 
-## What is established
+## Established before this run
 
-- The official statement/status and Formal Conjectures issue #773 were audited.
-- The post-page-update Bailleul–Riblet paper arXiv:2605.03181 is closest current work; it improves
-  the lower-bound constant but does not settle the conjectured asymptotic constant 1.
-- A candidate Lean file and a finite independent semantic checker are in the workspace.
-- Terra memo provenance was verified: SHA-256
-  `a84aafb6c27cf9ae1dc1e0820d1ddf60ea350d8dff9dd334f9e6c52fcbdcb3af`.
+- The source/status baseline and post-page-update literature audit are in
+  `research/baseline_audit.md`.
+- The candidate is `FormalConjectures/ErdosProblems/530.lean`, SHA-256
+  `50f3081d7647c1a892356043e55a96d8720aeea6ba64cfc89754fa79da4ef6e4`.
+- The two independent finite Sidon encodings agreed on all 512 subsets of
+  `{-4,...,4}`. Do not increase this arbitrary cutoff without a new semantic ambiguity.
+- A prior interactive direct elaboration at pinned Lean 4.27.0 was reported successful, but this
+  run did not find a corresponding immutable experiment record. It therefore remains useful
+  diagnostic history, not completion of the reproducibility contract.
 
-## Current state
+## Run 2 discriminator and exact observations
 
-The environment blocker was resolved on 2026-07-20: a project-scoped `elan` installation selected the
-repository-pinned Lean 4.27.0 toolchain, and Formal Conjectures plus its pinned Mathlib revision were
-fetched successfully. The candidate was updated for the repository's current import API:
-`FormalConjecturesUtil` replaces the removed `FormalConjectures.Util.ProblemImports` module.
+Hypothesis: the candidate builds as a warning-fatal Formal Conjectures module at the pinned
+toolchain. Success required a zero exit from the repository build entry point. Any target-resolution,
+dependency, warning, or elaboration error was the predeclared failure signal.
 
-A direct elaboration against the pinned Lean and Mathlib environment completed with only the expected
-warning that the open conjecture declaration uses `sorry`; its supporting definitions and controls
-therefore elaborated successfully. The current Lake named-target wrapper reports an opaque empty
-`no such file or directory` failure for this newly introduced numeric module even after all imported
-Formal Conjectures support modules build. Use the captured direct `lake env lean
-FormalConjectures/ErdosProblems/530.lean` check for the immediate kernel-elaboration gate, then
-resolve the Lake wrapper behavior before claiming repository CI has passed. Use `LEAN_NUM_THREADS=1`
-in memory-constrained environments.
-The earlier diagnostics `20260720-194849-f1733c` and `20260720-194914-3f029d` are failed resource
-controls (“failed to create thread”), not source errors.
+Three recorded attempts failed before Lean read the candidate body:
+
+1. `.proof-experiments/20260721-184217-5689de`: the checkpoint's old bare target
+   `FormalConjectures.ErdosProblems.530` failed in 34.675 s with Lake's empty-path
+   `no such file or directory` (exit 1; peak child memory 514492 KiB).
+2. `.proof-experiments/20260721-184333-13112b`: with `--dir`, the relative source-path target
+   `FormalConjectures/ErdosProblems/530.lean` failed in 106.924 s as `unknown module source path`
+   (exit 1; peak 449152 KiB). `--dir` did not rebase that CLI path as assumed.
+3. `.proof-experiments/20260721-184835-cc1cd3`: a direct warning-fatal elaboration against the
+   bootstrap cache failed in 33.114 s because `FormalConjecturesUtil.olean` did not yet exist
+   (exit 1; peak 527652 KiB). The mandated bootstrap process was still compiling that target after
+   the tool call yielded; it was interrupted after exceeding the two-minute uncheckpointed-work
+   threshold. This is a dependency-race result, not a Lean source error.
+
+Lake 5.0.0's own `lake help build` gives the correct disambiguated module form; the successful
+0.122-second documentation control is `.proof-experiments/20260721-185548-c3172e`. Numeric Lean
+module components need guillemets, so the target is:
+
+```text
++FormalConjectures.ErdosProblems.«530»
+```
+
+Do not retry either failed addressing form. An attempted matched query on existing numeric module
+`+FormalConjectures.ErdosProblems.«1»` was stopped after 135 seconds because it was rebuilding local
+dependencies outside the checkpointed lab; it produced no result and is not evidence.
+
+## Checkpointed lab job now queued
+
+- Job: `lab-scout-bdf77f43574b-eec7321621e3`
+- Submission record:
+  `records/labs/lab-scout-bdf77f43574b-eec7321621e3-submitted-segment-01.json`
+- Queue spec: `lab-queue/lab-scout-bdf77f43574b-eec7321621e3.json`
+- Driver: `checks/run_erdos530_lean_build.sh`, SHA-256
+  `dbdeb901c19808cb9f06785e269b79690ba7b5cfe368db7e655077015a2ff6c2`
+- Bound: one 1200-second segment, 1100 MB, deterministic seed 0.
+- Exact action: record the workspace and checkout candidate hashes, record checkout commit and Lake
+  version, then run `lake --wfail build '+FormalConjectures.ErdosProblems.«530»'` with one Lean
+  thread.
+
+Queueing is not evidence. Do not claim that this build passed until the completed lab record and
+logs are inspected.
 
 ## Exact first action next epoch
 
-In a network-enabled workspace, clone current `google-deepmind/formal-conjectures`, copy
-`FormalConjectures/ErdosProblems/530.lean` into it, preserve the repository's toolchain/manifest,
-then run through the experiment wrapper:
+Inspect, without resubmitting, the job's records:
 
 ```text
-python3 /root/proof-factory/skills/computational-researcher/scripts/run_experiment.py \
-  --name erdos530-lean-build \
-  --hypothesis 'The scoped definitions, API controls, and asymptotic declaration elaborate at the repository-pinned versions' \
-  --expected-signal 'Target build and full lake build exit 0; only the open conjecture body contains sorry' \
-  --timeout 1800 --memory-mb 4096 \
-  --source-url https://www.erdosproblems.com/530 \
-  -- lake build FormalConjectures.ErdosProblems.530
+find records/labs -maxdepth 1 -type f \
+  -name 'lab-scout-bdf77f43574b-eec7321621e3*' -print
 ```
 
-If the target build passes, run full `lake build`, inspect every `sorry` occurrence in the new file,
-and request human review of: (i) repeated summands, (ii) swapped-pair triviality, (iii) exact-size
-guarantee versus at-least-size, and (iv) `~[atTop]` with `Real.sqrt`.
+If the completed segment exits zero and the two hashes match, promote the local target build to an
+independently reproducible kernel check. Then submit a separate checkpointed `lake --wfail build`
+for the full repository; do not run it interactively because dependency rebuilding exceeded two
+minutes here. If the segment fails, preserve and address only the first dependency, warning, or
+elaboration discrepancy. Do not attempt the open conjecture.
 
-Stop when the target and full builds pass and issue/PR review confirms statement equivalence. If
-the candidate fails, fix only elaboration/API issues; do not attempt the open conjecture.
+## Remaining acceptance gates
+
+1. Correct target build passes and produces the `530` OLean.
+2. Full `lake --wfail build` passes.
+3. Exactly the two intended `sorry` occurrences remain, both in the open conjecture declaration
+   (`answer(sorry)` and its proof).
+4. A human Formal Conjectures reviewer checks repeated summands, swapped-pair triviality,
+   exact-size versus at-least-size, bounded maximality, and `~[atTop]` with `Real.sqrt`.
+5. Repository CI passes. A local build, Git commit, Sol review, or Terra memo is not external
+   validation.
+
+Stop successfully only after all five gates. The live bottleneck is the queued correct-target build,
+followed by full build and human semantic review.

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "20260721-185548-c3172e",
+  "name": "lake-target-grammar-control",
+  "hypothesis": "Lake 5.0.0 documents +module as the disambiguated module-target form and accepts source paths as a distinct target form",
+  "expected_signal": "lake help build exits 0 and prints both the +A module example and source-path target documentation",
+  "command": [
+    "/root/.cache/proof-factory/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+    "help",
+    "build"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 60,
+  "memory_limit_mb": 256,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-21T18:55:48.543092+00:00",
+  "finished_at": "2026-07-21T18:55:48.664875+00:00",
+  "duration_seconds": 0.122,
+  "returncode": 0,
+  "timed_out": false,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "3d57b5842baa7e2f9c75919a0bbca0136090fdc5",
+  "source_urls": [
+    "https://github.com/leanprover/lake"
+  ],
+  "input_artifacts": {
+    "/mnt/volume_sfo3_1784567780659/proof-factory-cache/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake": "6ee60352946250468cf340ec68fcbe6c11c0db7b25d9fb4ae38ecab8e6178b48"
+  },
+  "peak_child_memory_rusage": 94720,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "cf284b06f8d11d733a9d8f7307a4f5736458f0bc09bf71e859030983049fa136",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
