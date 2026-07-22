@@ -99,7 +99,7 @@ theorem isSidon_singleton (x : ℝ) : IsSidon ({x} : Set ℝ) := by
 @[category test, AMS 5 11]
 theorem not_isSidon_zero_one_two : ¬ IsSidon ({0, 1, 2} : Set ℝ) := by
   intro h
-  have h' := h 0 (by simp) 2 (by simp) 1 (by simp) 1 (by simp) (by norm_num)
+  have h' := h 0 (by simp) 1 (by simp) 2 (by simp) 1 (by simp) (by norm_num)
   norm_num at h'
 
 /--

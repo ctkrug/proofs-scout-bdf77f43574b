@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "20260722-043421-7797b3",
+  "name": "erdos530-control-order-repair-semantic-audit-run4",
+  "hypothesis": "The one-line argument-order repair preserves the universal equivalence with project IsSidon and the repeated-summand and swap controls.",
+  "expected_signal": "Lean kernel exits 0 with empty stdout and stderr on the independent audit; any diagnostic rejects the repair.",
+  "command": [
+    "/root/.cache/proof-factory/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+    "--dir",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/.upstream/formal-conjectures",
+    "env",
+    "lean",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/Erdos530SemanticAudit.lean"
+  ],
+  "cwd": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "seed": 0,
+  "timeout_seconds": 120,
+  "memory_limit_mb": 4096,
+  "memory_limit_enforced": true,
+  "started_at": "2026-07-22T04:34:21.884053+00:00",
+  "finished_at": "2026-07-22T04:36:22.018514+00:00",
+  "duration_seconds": 120.135,
+  "returncode": 124,
+  "timed_out": true,
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "git_commit": "1ba52f1cc7ae514a04490a4181b15b8a38fa5722",
+  "source_urls": [
+    "https://www.erdosproblems.com/530"
+  ],
+  "input_artifacts": {
+    "/root/.cache/proof-factory/lean/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake": "6ee60352946250468cf340ec68fcbe6c11c0db7b25d9fb4ae38ecab8e6178b48",
+    "/root/proof-factory/research/scout-bdf77f43574b/workspace/checks/Erdos530SemanticAudit.lean": "d9766dd56de50bc1617d545147436aaf18a0992a118931efda65cc3f621f5bf9"
+  },
+  "peak_child_memory_rusage": 717556,
+  "peak_child_memory_unit": "kilobytes",
+  "artifacts": {
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
