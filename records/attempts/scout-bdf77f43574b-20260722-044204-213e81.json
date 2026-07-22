@@ -1,0 +1,463 @@
+{
+  "id": "scout-bdf77f43574b-20260722-044204-213e81",
+  "problem_id": "scout-bdf77f43574b",
+  "started_at": "2026-07-22T04:30:07.431645+00:00",
+  "finished_at": "2026-07-22T04:42:04.473121+00:00",
+  "duration_seconds": 717.0,
+  "lane": "easy",
+  "phase": "technical",
+  "model": "gpt-5.6-sol",
+  "effort": "high",
+  "orchestration": {
+    "architecture": "sol-principal-terra-delegates",
+    "principal_model": "gpt-5.6-sol",
+    "delegate_model": "gpt-5.6-terra",
+    "delegate_roles": [
+      "source-discriminator"
+    ],
+    "delegate_statuses": {
+      "source-discriminator": "completed"
+    },
+    "delegate_admission": {
+      "event_kinds": [
+        "lab_completed"
+      ],
+      "selected_roles": [
+        "source-discriminator"
+      ],
+      "route_decision_event_kinds": [
+        "evidence_repaired",
+        "external_feedback",
+        "route_authorized",
+        "source_changed"
+      ]
+    }
+  },
+  "delegates": [
+    {
+      "role": "source-discriminator",
+      "model": "gpt-5.6-terra",
+      "effort": "high",
+      "status": "completed",
+      "memo_path": ".delegates/20260722-043007-34b82f/source-discriminator/memo.md",
+      "memo_sha256": "9f22d5ec4d6cd495ab751f3e2aa2831ceccb59450e674230466120308a1a7a5c",
+      "usage": {
+        "input_tokens": 299858,
+        "cached_input_tokens": 247296,
+        "output_tokens": 3585,
+        "reasoning_output_tokens": 1422
+      },
+      "error": ""
+    }
+  ],
+  "outcome": "progress",
+  "approach": "Audited the failed API-refactored Lean target, repaired the single adversarial-control argument-order mismatch, hash-locked the repaired source, and escalated its warning-fatal target build to the checkpointed lab.",
+  "summary": "The failed API-refactor lab was audited. Its only reported source diagnostic was an unsolved {0,1,2} control caused by passing IsSidon arguments in the removed legacy predicate's order. The call was repaired to (0,1,2,1), producing candidate SHA-256 3ff7038c…e8466 and driver SHA-256 ea7486e0…9a1. An unchanged semantic-audit retry timed out at 120 seconds with no diagnostics, so it was not counted as validation. The repaired exact-target build was submitted as lab-scout-bdf77f43574b-135f90912547. No proof, successful build, CI result, or upstream formalization is claimed.",
+  "rationale": "The failure log and pinned definition identify a concrete positional mismatch, while the prior independent audit already exhibits the correct collision ordering. The one-line repair is therefore justified, but only a fresh OLean for the repaired hash can establish technical completion.",
+  "claims": [
+    "Pinned project IsSidon takes membership arguments in order i₁,j₁,i₂,j₂ and tests i₁+i₂=j₁+j₂.",
+    "Source hash e27b8c80… failed after 625.802 seconds with one reported unsolved goal at the {0,1,2} control.",
+    "The repaired workspace and pinned-checkout sources are byte-identical at SHA-256 3ff7038c3c08f48408f48d53c4503182944cfd8c51b549cbab570a3b062e8466.",
+    "The unchanged audit retry timed out after 120.135 seconds with empty stdout and stderr and does not validate the repair.",
+    "The repaired target is queued under job lab-scout-bdf77f43574b-135f90912547; queueing is not evidence.",
+    "GitHub issue #773 was open and unassigned on 2026-07-22."
+  ],
+  "evidence": [
+    "sha256sum FormalConjectures/ErdosProblems/530.lean checks/run_erdos530_lean_build.sh checks/Erdos530SemanticAudit.lean",
+    "cmp --silent FormalConjectures/ErdosProblems/530.lean .upstream/formal-conjectures/FormalConjectures/ErdosProblems/530.lean",
+    "bash -n checks/run_erdos530_lean_build.sh",
+    "Prior semantic experiment 20260721-223233-e53846: return code 0, 10.082 seconds, empty diagnostics.",
+    "Bounded retry 20260722-043421-7797b3: return code 124, timed_out true, 120.135 seconds, empty diagnostics.",
+    "Failed refactor lab stdout: line 102 unsolved goal h : IsSidon {0,1,2} ⊢ False."
+  ],
+  "evidence_files": [
+    "FormalConjectures/ErdosProblems/530.lean",
+    "checks/run_erdos530_lean_build.sh",
+    "checks/Erdos530SemanticAudit.lean",
+    ".proof-experiments/20260721-223233-e53846/experiment.json",
+    ".proof-experiments/20260722-043421-7797b3/experiment.json",
+    "records/labs/lab-scout-bdf77f43574b-03d1a8ffc4cf-stopped-with-reason-segment-01.json",
+    "lab-runs/lab-scout-bdf77f43574b-03d1a8ffc4cf/segment-000001/20260721-223701-49232e/stdout.txt",
+    "lab-runs/lab-scout-bdf77f43574b-03d1a8ffc4cf/segment-000001/20260721-223701-49232e/stderr.txt"
+  ],
+  "next_steps": [
+    "Inspect immutable completion artifacts for lab-scout-bdf77f43574b-135f90912547 without resubmitting it.",
+    "On exit 0, verify source and driver hashes, empty diagnostics, and a nonempty newly hashed 530.olean.",
+    "Then move GuaranteedSidonSize, ell, and reusable proved API lemmas into an indexed FormalConjecturesForMathlib file and rebuild.",
+    "After placement stabilizes, reproduce from a clean checkout and submit a checkpointed full lake --wfail build."
+  ],
+  "citations": [
+    "https://www.erdosproblems.com/530",
+    "https://github.com/google-deepmind/formal-conjectures/issues/773",
+    "https://github.com/google-deepmind/formal-conjectures/blob/main/CONTRIBUTING.md",
+    "https://github.com/google-deepmind/formal-conjectures/blob/8f6e745798379104379da0b5c28c25315489890f/FormalConjecturesForMathlib/Combinatorics/Basic.lean"
+  ],
+  "techniques": [
+    "Lean 4 kernel checking",
+    "independent predicate equivalence proof",
+    "adversarial repeated-summand control",
+    "exact source hashing",
+    "byte comparison",
+    "warning-fatal exact-target build",
+    "checkpointed laboratory execution"
+  ],
+  "experiments": [
+    ".proof-experiments/20260721-223233-e53846: unchanged independent semantic audit passed Lean 4.27.0 in 10.082 seconds with empty diagnostics.",
+    "lab-runs/lab-scout-bdf77f43574b-03d1a8ffc4cf/segment-000001/20260721-223701-49232e: API-refactored target failed after 625.802 seconds at the single reported control proof state.",
+    ".proof-experiments/20260722-043421-7797b3: bounded audit retry timed out at 120.135 seconds with empty diagnostics; no semantic conclusion."
+  ],
+  "transfer_insights": [
+    "API migration auditing -> positional quantifier order may differ despite extensional equivalence -> inspect the defining equality and rerun a collision witness -> the project predicate required (0,1,2,1), explaining the failed legacy-order call."
+  ],
+  "established_facts": [
+    {
+      "claim": "LegacyFinsetIsSidon S ↔ IsSidon (S : Set ℝ) for every S : Finset ℝ.",
+      "evidence": "Lean theorem legacyFinsetIsSidon_iff_projectIsSidon in experiment 20260721-223233-e53846.",
+      "scope": "All finite subsets of the real numbers under the pinned project API.",
+      "status": "proved"
+    },
+    {
+      "claim": "The API-refactored source hash e27b8c80… produced an unsolved goal at line 102 under the exact warning-fatal target.",
+      "evidence": "lab-scout-bdf77f43574b-03d1a8ffc4cf record and content-addressed stdout.",
+      "scope": "Pinned checkout 8f6e745…, Lean 4.27.0, exact Problem 530 target.",
+      "status": "computed"
+    },
+    {
+      "claim": "The repaired workspace and checkout candidate files have SHA-256 3ff7038c3c08f48408f48d53c4503182944cfd8c51b549cbab570a3b062e8466 and compare byte-identically.",
+      "evidence": "sha256sum and cmp checks recorded this epoch.",
+      "scope": "The two candidate paths in the current workspace.",
+      "status": "computed"
+    },
+    {
+      "claim": "The 2026-07-22 audit retry timed out after 120.135 seconds without diagnostics.",
+      "evidence": ".proof-experiments/20260722-043421-7797b3/experiment.json.",
+      "scope": "That bounded local execution only.",
+      "status": "computed"
+    }
+  ],
+  "ruled_out": [
+    {
+      "claim_or_route": "Use the call ordering (0,2,1,1) to witness 0+2=1+1 under project IsSidon.",
+      "scope": "The line-102 control under the pinned project definition.",
+      "reason": "Those positions encode 0+1=2+1, not the intended collision.",
+      "evidence": "Pinned Basic.lean definition and failed lab diagnostic.",
+      "reopen_condition": "Only a project API signature change."
+    },
+    {
+      "claim_or_route": "Treat the timed-out 20260722 audit retry as a successful semantic check.",
+      "scope": "Experiment 20260722-043421-7797b3.",
+      "reason": "It returned code 124 and produced no kernel acceptance receipt.",
+      "evidence": ".proof-experiments/20260722-043421-7797b3/experiment.json.",
+      "reopen_condition": "A completed hash-bound kernel run."
+    },
+    {
+      "claim_or_route": "Claim that the exact target eliminated 8037 unrelated jobs.",
+      "scope": "Search-efficiency accounting for the pinned checkout.",
+      "reason": "The target log itself reports an 8038-job dependency closure.",
+      "evidence": "Validated and failed exact-target stdout artifacts.",
+      "reopen_condition": "A measured dependency-graph comparison against the full build."
+    }
+  ],
+  "open_leads": [
+    {
+      "description": "Review the repaired exact-target lab.",
+      "rationale": "It is the cheapest decisive check of the current source hash.",
+      "next_experiment": "Inspect records and content-addressed outputs for lab-scout-bdf77f43574b-135f90912547.",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "description": "Relocate and index extremal helpers.",
+      "rationale": "The repository contribution guide explicitly requires conjecture-supporting definitions and results in FormalConjecturesForMathlib.",
+      "next_experiment": "After the current hash passes, create one helper module, update FormalConjecturesForMathlib.lean, import it from 530.lean, and rebuild the named target.",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "description": "Clean-checkout and full-CI reproduction.",
+      "rationale": "These remain explicit verification-contract gates after interface placement stabilizes.",
+      "next_experiment": "Apply only the stabilized patch to a clean pinned checkout, run the exact target, then submit the full warning-fatal build to the lab.",
+      "priority": "normal",
+      "status": "open"
+    }
+  ],
+  "strategy_proposals": [],
+  "synthesis_candidates": [],
+  "strategy": {
+    "family": "isolated adversarial reconstruction",
+    "fingerprint": "7603cdb38bd3",
+    "mechanism": "Compare the candidate with the repository's actual IsSidon API, use an independently compiled equivalence/control file to guard semantics, and let the pinned Lean kernel discriminate exact source hashes.",
+    "parent_ids": [
+      "strategy-formal-premise-retrieval"
+    ],
+    "route_evaluation": {
+      "gate_proximity": 0.62,
+      "contribution_value": 0.55,
+      "decisiveness": 0.82,
+      "novelty_confidence": 0.45,
+      "novelty_risk": 0.35,
+      "scope": 0.65,
+      "reuse_value": 0.72,
+      "model_cost": 1.0,
+      "cpu_cost": 1.0
+    }
+  },
+  "continuation": {
+    "objective": "Convert the repaired API-reusing declaration into a kernel-checked and repository-layout-compliant contribution.",
+    "first_action": "Inspect records/labs and lab-runs for lab-scout-bdf77f43574b-135f90912547; do not resubmit it.",
+    "stop_condition": "Redirect on the first build diagnostic; if it passes, stop editing the current file until the helper-module relocation is designed and hash-bound."
+  },
+  "candidate_profile": {
+    "contribution_class": "research_artifact",
+    "scholarly_question": "Provide a precise Lean interface for Erdős Problem #530's largest guaranteed Sidon-subset function and its conjectured square-root asymptotic.",
+    "meaningful_delta": "No known public formalization exists; this artifact defines the extremal function, states the exact asymptotic question, and reuses the project's shared Sidon predicate.",
+    "acceptance_test": "The final repository-layout-compliant source must pass the pinned warning-fatal target, clean-checkout reproduction, full repository CI, and maintainer semantic review in a linked issue #773 pull request.",
+    "closest_prior_work": [
+      {
+        "url": "https://github.com/google-deepmind/formal-conjectures/blob/8f6e745798379104379da0b5c28c25315489890f/FormalConjecturesForMathlib/Combinatorics/Basic.lean",
+        "difference": "Provides the reusable IsSidon predicate but not Problem 530's guaranteed-size extremal function or asymptotic declaration."
+      },
+      {
+        "url": "https://github.com/google-deepmind/formal-conjectures/issues/773",
+        "difference": "Requests the formalization but contains no accepted implementation."
+      }
+    ],
+    "novelty_searches": [
+      {
+        "source": "Maintained Erdős Problems page",
+        "query": "Problem 530 formalisation status",
+        "url": "https://www.erdosproblems.com/530",
+        "finding": "The campaign baseline records the problem as open and not formalised."
+      },
+      {
+        "source": "Formal Conjectures GitHub issue tracker",
+        "query": "Erdős Problem 530 issue, assignee, linked development",
+        "url": "https://github.com/google-deepmind/formal-conjectures/issues/773",
+        "finding": "Issue open and unassigned on 2026-07-22; no accepted contribution identified."
+      }
+    ],
+    "external_channel": {
+      "recipient": "Formal Conjectures maintainers",
+      "url": "https://github.com/google-deepmind/formal-conjectures/issues/773",
+      "acceptance_path": "Obtain assignment, satisfy the CLA, submit a linked pull request with indexed helper definitions, and pass review and CI."
+    },
+    "independent_validations": [
+      {
+        "type": "formal_kernel",
+        "validator": "Lean 4.27.0 on the separately written semantic audit",
+        "result": "Universal legacy/project Sidon equivalence and edge controls accepted; this validates semantics only, not the repaired target.",
+        "artifact": ".proof-experiments/20260721-223233-e53846/experiment.json",
+        "evidence_url": ""
+      }
+    ],
+    "relevance": {
+      "settles_exact_open_target": false,
+      "improves_best_known_result": false,
+      "source_explicitly_requests_result": true,
+      "expert_interest_confirmed": false,
+      "new_structural_result": false,
+      "evidence_url": "https://github.com/google-deepmind/formal-conjectures/issues/773"
+    },
+    "arbitrary_cutoff_extension": false
+  },
+  "campaign_assessment": {
+    "decision": "continue",
+    "close_signal": "",
+    "reason": "Run 4 is before the mandatory run-25 review point, and the queued exact-target build is a bounded decisive test of a single repaired source hash."
+  },
+  "search_efficiency": {
+    "naive_space": "A full build over 975 local Lean source modules plus dependencies; the dominant operation is loading/elaborating the aggregate FormalConjecturesUtil dependency closure.",
+    "reductions_considered": [
+      "exact named-module target",
+      "cached pinned dependencies",
+      "one Lean thread",
+      "candidate and checkout byte comparison",
+      "source-hash prefilter",
+      "warning-fatal compilation",
+      "nonempty OLean postcondition",
+      "independent semantic equivalence audit"
+    ],
+    "chosen_mechanism": "Compile only +FormalConjectures.ErdosProblems.«530» after exact byte/hash checks, while preserving the separately compiled semantic checker.",
+    "estimated_or_measured_savings": "The named target is narrower than all project roots, but its prior log still contained an 8038-job dependency closure; reduction relative to a full build remains unmeasured.",
+    "soundness_guard": "The driver rejects any source other than SHA-256 3ff7038c3c08f48408f48d53c4503182944cfd8c51b549cbab570a3b062e8466, compares workspace and checkout bytes, uses --wfail, and requires a nonempty OLean. The unchanged independent audit previously passed Lean's kernel."
+  },
+  "space_reduction": {
+    "ambient_space": "975 local project source modules plus transitive dependencies, and all possible semantic discrepancies between the removed finite predicate and project IsSidon.",
+    "represented_space_before": "One API-refactored Problem 530 module with one observed unsolved proof state at the {0,1,2} control.",
+    "eliminated_or_quotiented": "The exact argument-order discrepancy was identified and repaired; no claim is made that later diagnostics are impossible.",
+    "represented_space_after": "One repaired source hash awaiting a warning-fatal exact-target build.",
+    "reduction_factor": "One observed proof-state blocker removed; global build reduction unmeasured.",
+    "measurement_status": "exact",
+    "unit": "proof states",
+    "coverage_scope": "The line-102 adversarial control in source hash e27b8c80ed9edb57989006cc9bd299fdd58331c2b2a30b69ec9721b409562a2e and its one-line repaired successor.",
+    "soundness_basis": "Direct inspection of pinned Basic.lean shows argument order (i₁,j₁,i₂,j₂) with equality i₁+i₂=j₁+j₂; the independent audit uses the repaired (0,1,2,1) ordering.",
+    "remaining_unknown": "Whether repaired hash 3ff7038c…e8466 completes elaboration warning-clean, whether more errors appear afterward, final helper placement, clean-checkout reproduction, full CI, and maintainer acceptance.",
+    "next_bulk_elimination": "Review the single exact-target lab result, then move and index all reusable helpers together if compilation passes."
+  },
+  "tactical_learning": {
+    "prediction": "The failed target would expose a local control-test defect rather than a defect in the extremal declaration.",
+    "observation": "The failed build reported one unsolved goal at line 102. The pinned definition confirmed the wrong ordering, and the candidate was repaired to match the already-correct independent audit. A new local audit retry timed out after 120.135 seconds with empty diagnostics.",
+    "surprise": "The unchanged audit, previously completed in 10.082 seconds, exceeded 120 seconds in this environment; this is a resource/cold-cache result rather than semantic evidence.",
+    "failure_signature": "When migrating between extensionally equivalent predicates, positional argument order can change even when the surface equality and theorem meaning do not.",
+    "bottleneck_update": "The immediate blocker is the checkpointed kernel build of repaired hash 3ff7038c…e8466; the next acceptance blocker is mandatory helper placement under FormalConjecturesForMathlib.",
+    "reusable_assets": [
+      {
+        "name": "Erdos530SemanticAudit.lean",
+        "use": "Regression-check project IsSidon equivalence, repeated summands, and commutative swaps.",
+        "evidence": "checks/Erdos530SemanticAudit.lean; SHA-256 d9766dd56de50bc1617d545147436aaf18a0992a118931efda65cc3f621f5bf9; prior kernel experiment 20260721-223233-e53846."
+      },
+      {
+        "name": "run_erdos530_lean_build.sh",
+        "use": "Hash-locked warning-fatal exact-target build with OLean postcondition.",
+        "evidence": "checks/run_erdos530_lean_build.sh; SHA-256 ea7486e083994d8727f76eef3d928a584c8a325f241a1ad962382fca4b5789a1; bash -n passed."
+      }
+    ],
+    "constraints_learned": [
+      {
+        "constraint": "Project IsSidon arguments are ordered i₁,j₁,i₂,j₂ while the sum is i₁+i₂=j₁+j₂.",
+        "scope": "Pinned Formal Conjectures commit 8f6e745798379104379da0b5c28c25315489890f.",
+        "evidence": "FormalConjecturesForMathlib/Combinatorics/Basic.lean lines 57-58 at the pinned checkout."
+      },
+      {
+        "constraint": "Definitions and proved results needed to state a conjecture must be placed in a separate indexed FormalConjecturesForMathlib file.",
+        "scope": "Current Formal Conjectures contribution process.",
+        "evidence": "https://github.com/google-deepmind/formal-conjectures/blob/main/CONTRIBUTING.md"
+      }
+    ],
+    "route_decision": "continue",
+    "next_discriminator": "Inspect lab-scout-bdf77f43574b-135f90912547 and validate or redirect at its first diagnostic."
+  },
+  "prior_art_check": {
+    "nearest_method_ids": [
+      "none-found"
+    ],
+    "classification": "material_modification",
+    "exact_delta": "The candidate provides the missing extremal-function and asymptotic interface for Problem 530 while reusing the repository's existing IsSidon predicate instead of duplicating it.",
+    "duplicate_risk": "An unlinked private branch could independently formalize issue #773; no public assigned issue, linked PR, or known formalization is currently recorded.",
+    "comparison_test": "Recheck issue #773 assignment/linked development and repository code search before promotion or external submission.",
+    "decision": "proceed",
+    "source_urls": [
+      "https://www.erdosproblems.com/530",
+      "https://github.com/google-deepmind/formal-conjectures/issues/773",
+      "https://github.com/google-deepmind/formal-conjectures/blob/8f6e745798379104379da0b5c28c25315489890f/FormalConjecturesForMathlib/Combinatorics/Basic.lean"
+    ]
+  },
+  "field_progress_assessment": {
+    "status": "not_met",
+    "gate_id": "Use the sourced contribution and verification contract.",
+    "contribution_class": "research artifact and exact control repair",
+    "closest_prior_result": "The pre-refactor candidate hash 208af82a…71c9 had a validated exact-target build, while the API-refactored hash e27b8c80… failed at one control lemma.",
+    "measurable_improvement": "The sole observed line-102 proof-state discrepancy was repaired, producing byte-matched candidate hash 3ff7038c…e8466 and a hash-locked lab submission.",
+    "independent_validation": "The unchanged semantic audit previously passed Lean 4.27.0 with empty diagnostics, but the repaired candidate target has not yet completed independent kernel validation.",
+    "external_audience": "Formal Conjectures maintainers through GitHub issue #773 and a linked pull request.",
+    "remains_unproved": "Warning-clean target compilation for the repaired hash, required helper relocation/indexing, clean-checkout reproduction, full repository CI, and maintainer acceptance.",
+    "route_recommendation": "continue because one checkpointed target build can decisively validate or redirect the repaired source."
+  },
+  "lab_review": {
+    "job_id": "lab-scout-bdf77f43574b-03d1a8ffc4cf",
+    "decision": "redirect",
+    "reason": "The lab reached the candidate and returned one exact unsolved goal caused by legacy-versus-project IsSidon argument order; repair only that call and rebuild a new hash.",
+    "evidence": [
+      "records/labs/lab-scout-bdf77f43574b-03d1a8ffc4cf-stopped-with-reason-segment-01.json",
+      "lab-runs/lab-scout-bdf77f43574b-03d1a8ffc4cf/segment-000001/20260721-223701-49232e/stdout.txt",
+      "lab-runs/lab-scout-bdf77f43574b-03d1a8ffc4cf/segment-000001/20260721-223701-49232e/stderr.txt"
+    ]
+  },
+  "hypothesis": "Changing the project-IsSidon control invocation from legacy order (0,2,1,1) to project order (0,1,2,1) removes the only observed elaboration failure without changing the formal conjecture or its extremal API.",
+  "discriminating_test": "Run the hash-locked exact Problem 530 target with lake --wfail and require exit 0 plus a nonempty newly hashed 530.olean.",
+  "strategy_status": "promising",
+  "research_mode": "hybrid",
+  "independent_checker": "checks/Erdos530SemanticAudit.lean is separately written and proves LegacyFinsetIsSidon S ↔ IsSidon (S : Set ℝ) for every Finset ℝ, with repeated-summand and swap controls. Its prior kernel pass remains valid because the checker bytes are unchanged.",
+  "blocker": "Repaired source hash 3ff7038c…e8466 has no completed target-build receipt, and its reusable extremal helpers are not yet placed as required by the contribution guide.",
+  "reopen_condition": "Not applicable; the strategy remains active and continues when the queued target lab produces an immutable completion record.",
+  "reopen_evidence": "",
+  "tool_disclosure": "Sol principal: this GPT-5-based Codex agent performed source inspection, experiment design, editing, and synthesis. One supplied GPT-5.6-Terra delegate memo provided advisory reconnaissance; every relied-on claim was checked against pinned source or deterministic artifacts, and model agreement was not treated as validation. Lean 4.27.0 and Lake 5.0.0 performed or are queued to perform kernel checks; Bash utilities supplied hashing, byte comparison, and syntax checks; the computational-researcher run_experiment and checkpointed-lab scripts recorded bounded executions. GitHub API/raw-source checks and web access were used for current repository metadata. No CAS, SAT/SMT solver, or additional sub-agent was used.; orchestration: gpt-5.6-sol principal with gpt-5.6-terra delegates.",
+  "policy_flags": [],
+  "contribution_gate": {
+    "schema_version": 1,
+    "passed": false,
+    "status": "not_requested",
+    "reasons": [],
+    "contribution_class": "unspecified",
+    "meaningful_delta": "",
+    "scholarly_question": "",
+    "external_recipient": "",
+    "independent_validation_types": []
+  },
+  "contribution_status": "research_attempt",
+  "review_status": "not a result claim",
+  "usage": {
+    "input_tokens": 1629726,
+    "cached_input_tokens": 1551872,
+    "output_tokens": 18891,
+    "reasoning_output_tokens": 5583
+  },
+  "json_repair": {
+    "attempted": false,
+    "used": false,
+    "model": null,
+    "effort": null,
+    "timeout_seconds": 180,
+    "usage": {},
+    "error": "",
+    "policy": "serialization-only; protected outcome and classification fields must remain unchanged"
+  },
+  "error": "",
+  "artifact_hashes": {
+    ".delegates/20260722-043007-34b82f/source-discriminator/memo.md": "9f22d5ec4d6cd495ab751f3e2aa2831ceccb59450e674230466120308a1a7a5c",
+    ".git/logs/HEAD": "5091e6f54051023931f4c061d9d8094740ae9a938730c0560ed1a09efa0ca212",
+    ".git/logs/refs/heads/main": "e4c64ba98c73e460fbeee3bca8976dee9c0d97720003980a898183ec79744587",
+    ".git/objects/0c/e13b03c4f43972950189bc26a1ae9eddf9452e": "c32fb095e49d88fe444a25bff2015586448dfbb579d51fee36892ef893e9f60e",
+    ".git/objects/0d/6709df6b541191d3307ca9599c571b71a26032": "bc4806a1c8ea3c6c237d8ee134556c968fa37bdf7154cec6e27a0a59342b7031",
+    ".git/objects/2e/92de6b273a8b965834294307efd3c8be4f27dc": "08210b9a89c4c6445a50919598d1a0a25b03e369e113947462942c8ad4a8c831",
+    ".git/objects/2f/22974ea82f7ad001b7fcbd0c003cbb06f85688": "b78734349d9746b966745abf0cbd51ca0c1986007127d47604725a3f32e85e5f",
+    ".git/objects/50/f718eca449cf6127534bcf11a69bec2bd28bbf": "27060951d29e21c721f88a39fff68a947e4d1c42a01d54a93e0daaad4f7213de",
+    ".git/objects/57/b0e444b12bebdd0c743b28b1867dbf2cd5a906": "a8f5bec19e83e9ffdb274ea547d6f303c2fee3df82cd62c1b3b723e2ae4154d3",
+    ".git/objects/5b/ef4f42039e81c8eca6f07f5f809b0d77f6b2cd": "2cfd88f614cc24bf92865d2c9f5f3d4f3eed21f58de25683e92908de7dbe4dec",
+    ".git/objects/65/c78ab95879c9dd06b962e0600db9abfa4f6d25": "b2aa668e4efd2cd5bda71e0c7d913733734714004842b8ed885efb58d49723d2",
+    ".git/objects/6f/2c05a5a8459eb7355abe8b3299c0b19fd82a55": "f28434c3253e32a29ecf4b1d209a1244c7e2bf406c236f96410fc10f33034775",
+    ".git/objects/79/fba6b386fc3c5dd4850ac3035da2a5c9c100c7": "50c59c37a78f48f8f1acade743eacba686f8540e7f7920431c5a32247d224069",
+    ".git/objects/7a/c2c22e94d1a0eee4ee8d35d72dffa0280c6e53": "6bdab119530923f0213ef30bd7e7cc8ab189b6784eabce4be45ebb55a4f52bc7",
+    ".git/objects/84/88bd750dc368a4780becb9763e87374e9d50c2": "a186c73785c3b2a612c40159f74526148d556d6a68febbf1d76167ecb6312b90",
+    ".git/objects/af/818d6eb203ff14cdd281426b6bd001429a7749": "f7000b6c82c8a1adaf9c559e325bb67da59633df22cb61c66fbee13a73235def",
+    ".git/objects/b9/2251de02bc094d162d59bcf9ffb44edd89b4ec": "07cf457119cec26368a73a9784efea4142bc5eb239a2ecd968395cae141f3f40",
+    ".git/objects/c4/c0d0d8871d87603d398b98695d0d884040cce9": "1c9f5189b9ef9136b0bdce41ee4ccd8e9062763beeeca39e1e2851a36cb2076e",
+    ".git/objects/cf/d3b324de32928280f5b5698a696fb093f1c5f2": "be83af6bb897a9a04c42877d0364e7f634790259fa84e42d05b678ed3443986e",
+    ".git/objects/da/88e93759161afe1cd58ac12216775f273364a4": "cce1c00a9c522be1b584211c60fcdd23191a4d83ef3dbacaebd3784fe295a9f5",
+    ".git/objects/df/3496a443a15b71fd9f2f31b1d434a769aed676": "16a1caf29190bd7ee2f75f3a3bc9aedb34c24c805ea9533bd73b5901e6ab1a98",
+    ".git/objects/ea/5f3cce38f8d1835a9127df47dc63bf3400a863": "1b8cbb50c7859e4cbcb00154d936af05b167406d7e0ef64fe9d5317d2afb28b2",
+    ".git/refs/heads/main": "98ffb5ca83e94b95c153ab806096091e05d5938abfc784bf187b9eb7c6f67d58",
+    ".proof-experiments/20260721-223233-e53846/experiment.json": "1ca7016528d5bfed2bc590085341425da6937c118fb9dacef220cbcf055bed22",
+    ".proof-experiments/20260722-043421-7797b3/experiment.json": "0cbb36549373cf17340cf0eae86960e1275449aada0e70ba1c9879da69bcc111",
+    ".proof-experiments/20260722-043421-7797b3/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".proof-experiments/20260722-043421-7797b3/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".upstream/formal-conjectures/FormalConjectures/ErdosProblems/530.lean": "3ff7038c3c08f48408f48d53c4503182944cfd8c51b549cbab570a3b062e8466",
+    "FormalConjectures/ErdosProblems/530.lean": "3ff7038c3c08f48408f48d53c4503182944cfd8c51b549cbab570a3b062e8466",
+    "checks/Erdos530SemanticAudit.lean": "d9766dd56de50bc1617d545147436aaf18a0992a118931efda65cc3f621f5bf9",
+    "checks/run_erdos530_lean_build.sh": "ea7486e083994d8727f76eef3d928a584c8a325f241a1ad962382fca4b5789a1",
+    "lab-runs/lab-scout-bdf77f43574b-03d1a8ffc4cf/segment-000001/20260721-223701-49232e/stderr.txt": "c4a27db198c4d8632369ee6102944ef46e83c20d685f7c17a6aaff9cfcfc710f",
+    "lab-runs/lab-scout-bdf77f43574b-03d1a8ffc4cf/segment-000001/20260721-223701-49232e/stdout.txt": "cda040f72baae5ca85902b9f50ae80f4b8b7db94fc7c787a1fb704577f864246",
+    "records/labs/lab-scout-bdf77f43574b-03d1a8ffc4cf-stopped-with-reason-segment-01.json": "bafe5b2b0bbd3212f550390764230e1d504cff2d7f7eb5b928e0bf01b4cea1a3",
+    "records/labs/lab-scout-bdf77f43574b-135f90912547-submitted-segment-01.json": "14f94068822ba4c1371b17c2c2b52c1dbf852b7fe8d0275f6f7b26d62ece4d7d"
+  },
+  "evidence_validation": {
+    "status": "valid",
+    "manifest": "evidence/scout-bdf77f43574b-20260722-044204-213e81/delta-manifest.json",
+    "manifest_sha256": "353f67d596ba1049ce8319f2483c408324e753c2892c6d56ba9e48080c8b920c",
+    "receipt": "evidence/scout-bdf77f43574b-20260722-044204-213e81/evidence-receipt.json",
+    "artifact_count": 38,
+    "claimed_evidence_count": 8,
+    "errors": []
+  },
+  "lab_review_applied": {
+    "status": "stopped_with_reason",
+    "job_id": "lab-scout-bdf77f43574b-03d1a8ffc4cf",
+    "review": {
+      "decision": "redirect",
+      "reason": "The lab reached the candidate and returned one exact unsolved goal caused by legacy-versus-project IsSidon argument order; repair only that call and rebuild a new hash.",
+      "reviewer": "proof-factory:scout-bdf77f43574b-20260722-044204-213e81",
+      "reviewed_at": "2026-07-22T04:42:10.045374+00:00",
+      "segment": 1
+    }
+  }
+}
