@@ -1,0 +1,11 @@
+{
+  "event": "stopped_with_reason",
+  "id": "lab-scout-bdf77f43574b-03d1a8ffc4cf",
+  "review": {
+    "decision": "redirect",
+    "reason": "The lab reached the candidate and returned one exact unsolved goal caused by legacy-versus-project IsSidon argument order; repair only that call and rebuild a new hash.",
+    "reviewer": "proof-factory:scout-bdf77f43574b-20260722-044204-213e81",
+    "reviewed_at": "2026-07-22T04:42:10.045374+00:00",
+    "segment": 1
+  }
+}

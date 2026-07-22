@@ -1,6 +1,6 @@
 # Continuation checkpoint — Erdős #530 formalization
 
-Last completed model epoch: discovery run 4, 2026-07-21 UTC.
+Last completed model epoch: discovery run 4 continuation, 2026-07-22 UTC.
 
 ## Durable baseline
 
@@ -57,52 +57,68 @@ Two failed setup attempts are preserved:
 The required project bootstrap was run successfully. Removing the irrelevant attributes produced
 the decisive clean checker result.
 
-## API refactor made
+## API refactor and control repair
 
-`FormalConjectures/ErdosProblems/530.lean` now reuses project `IsSidon (S : Set ℝ)` and removes the
-duplicate local definition. The workspace and checkout copies are byte-identical at SHA-256
-`e27b8c80ed9edb57989006cc9bd299fdd58331c2b2a30b69ec9721b409562a2e`. The extremal definitions,
-bounded-maximum lemmas, and asymptotic declaration are otherwise unchanged. The build driver is
-hash-locked to this source and has SHA-256
-`e2971cf312a830f1419729f45a817e60fbc7e7cceb9570b9dfa30aee825e8ec3`.
+`FormalConjectures/ErdosProblems/530.lean` reuses project `IsSidon (S : Set ℝ)` and removes the
+duplicate local definition. Lab `lab-scout-bdf77f43574b-03d1a8ffc4cf` reached the refactored source
+after 625.802 seconds and failed only at the `{0,1,2}` adversarial control. The candidate had supplied
+arguments in the removed legacy predicate's order. The pinned project definition takes membership
+arguments `(i₁, j₁, i₂, j₂)` and compares `i₁ + i₂ = j₁ + j₂`, so the collision call must be
+`(0,1,2,1)`, not `(0,2,1,1)`.
 
-The refactored source has not yet been kernel-checked as a target. Do not reuse the old OLean claim
-for the new hash.
+That one line was repaired. The workspace and pinned-checkout copies are byte-identical at SHA-256
+`3ff7038c3c08f48408f48d53c4503182944cfd8c51b549cbab570a3b062e8466`. The extremal definitions,
+bounded-maximum lemmas, and asymptotic declaration are unchanged. The build driver is hash-locked to
+this source and has SHA-256
+`ea7486e083994d8727f76eef3d928a584c8a325f241a1ad962382fca4b5789a1`.
 
-## Refactored-target lab queued
+The independent semantic audit source was unchanged at SHA-256
+`d9766dd56de50bc1617d545147436aaf18a0992a118931efda65cc3f621f5bf9`; its prior kernel pass remains
+the semantic evidence. A new bounded retry, `.proof-experiments/20260722-043421-7797b3`, timed out at
+120.135 seconds with empty stdout/stderr and return code 124. Treat this only as a cold/resource timing
+result. It neither validates nor falsifies the repair, and it must not be retried locally now that its
+measured duration exceeds the two-minute lab threshold.
 
-- Job: `lab-scout-bdf77f43574b-03d1a8ffc4cf`.
-- Submission record: `records/labs/lab-scout-bdf77f43574b-03d1a8ffc4cf-submitted-segment-01.json`.
-- The queue item had been claimed and a run directory existed when this checkpoint was written, but
-  there was not yet a completed record or `experiment.json`.
+The repaired refactored source has not yet been kernel-checked as a target. Do not reuse the old
+pre-refactor OLean for this hash.
+
+## Repaired-target lab queued
+
+- Job: `lab-scout-bdf77f43574b-135f90912547`.
+- Queue spec: `lab-queue/lab-scout-bdf77f43574b-135f90912547.json` (mutable navigation only; never
+  claim it in `evidence_files`).
 - Bound: one 1200-second segment, 16384 MB, one Lean thread, deterministic seed 0.
+- Candidate SHA-256: `3ff7038c3c08f48408f48d53c4503182944cfd8c51b549cbab570a3b062e8466`.
+- Driver SHA-256: `ea7486e083994d8727f76eef3d928a584c8a325f241a1ad962382fca4b5789a1`.
 - Efficiency report: `experiments/erdos530-project-api-refactor-efficiency.json`.
 
-Queueing is not evidence.
+Queueing is not evidence. The defensible efficiency statement remains: one named module is requested
+instead of every project root, but its target log still has an 8038-job dependency closure and the
+exact reduction relative to a full build is unmeasured.
 
-The submitted lab spec inherited an overstated delegate estimate that the exact module target
-"excluded 8037 unrelated targets." Reject that count: the prior target log reports 8038 jobs in the
-dependency closure, so those jobs were not eliminated. The workspace efficiency report now records
-the defensible statement: one named project module is requested instead of every project root, but
-the exact reduction relative to a full build is unmeasured. This correction does not affect the
-source/hash prefilters or kernel-check design.
+As of 2026-07-22, GitHub issue #773 remains open and unassigned. The current repository contribution
+guide says definitions/results needed to formulate a conjecture belong in a separate
+`FormalConjecturesForMathlib` file and must be indexed. Therefore the present helper placement is not
+yet acceptance-ready even if this target build passes.
 
 ## Exact first action next epoch
 
-Inspect durable state for `lab-scout-bdf77f43574b-03d1a8ffc4cf` without resubmitting. If complete,
-check the record, stdout, stderr, source/driver hashes, and nonempty OLean hash, then issue one lab
-review decision. If it fails, preserve and repair only the first warning or elaboration discrepancy.
+Inspect durable state for `lab-scout-bdf77f43574b-135f90912547` without resubmitting. If complete,
+check the immutable lab record and content-addressed runner output, exact source/driver hashes,
+stdout, stderr, and nonempty OLean hash, then issue exactly one lab-review decision. Redirect on the
+first warning or elaboration discrepancy.
 
-If the refactored target passes, the next semantic discriminator is a maintainer-style placement
-review: decide whether `GuaranteedSidonSize`, `ell`, and their API lemmas may remain scoped in the
-problem file or must move to `FormalConjecturesForMathlib` under the contribution guide. Only after
-that review should a clean-checkout target and checkpointed full `lake --wfail build` be run.
+If the repaired target passes, move `GuaranteedSidonSize`, `ell`, and reusable proved API lemmas to a
+separate appropriately indexed `FormalConjecturesForMathlib` file, leaving the open declaration and
+problem-specific tests in `FormalConjectures/ErdosProblems/530.lean`. Rebuild the exact target before
+requesting a clean-checkout target and checkpointed full `lake --wfail build`.
 
 ## Remaining contribution gates
 
-1. The refactored exact target builds warning-clean and emits a nonempty OLean.
-2. A maintainer-style review accepts the exact-size convention, bounded maximum, project API reuse,
-   asymptotic declaration, and placement of supporting definitions.
+1. The repaired refactored exact target builds warning-clean and emits a nonempty OLean.
+2. Supporting definitions/results are moved and indexed as required by the repository guide, and a
+   maintainer-style review accepts the exact-size convention, bounded maximum, project API reuse,
+   asymptotic declaration, and final placement.
 3. A clean checkout with only the proposed patch reproduces the target build.
 4. Full repository `lake --wfail build` and repository CI pass.
 5. A linked pull request for issue #773 is accepted after the contributor satisfies the CLA.

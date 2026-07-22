@@ -1,0 +1,524 @@
+{
+  "schema_version": 1,
+  "kind": "proof-factory-attempt-delta-manifest",
+  "attempt_id": "scout-bdf77f43574b-20260722-044204-213e81",
+  "created_at": "2026-07-22T04:42:09.916063+00:00",
+  "workspace": "/root/proof-factory/research/scout-bdf77f43574b/workspace",
+  "mutable_projection_patterns": [
+    ".delegates/**",
+    ".git/**",
+    ".pytest_cache/**",
+    ".venv/**",
+    "CHECKPOINT.md",
+    "README.md",
+    "__pycache__/**",
+    "docs/DOSSIER.md",
+    "lab-archive/**",
+    "lab-queue/**",
+    "records/problem.json",
+    "records/research-state.json",
+    "venv/**"
+  ],
+  "claimed_evidence_paths": [
+    ".proof-experiments/20260721-223233-e53846/experiment.json",
+    ".proof-experiments/20260722-043421-7797b3/experiment.json",
+    "FormalConjectures/ErdosProblems/530.lean",
+    "checks/Erdos530SemanticAudit.lean",
+    "checks/run_erdos530_lean_build.sh",
+    "lab-runs/lab-scout-bdf77f43574b-03d1a8ffc4cf/segment-000001/20260721-223701-49232e/stderr.txt",
+    "lab-runs/lab-scout-bdf77f43574b-03d1a8ffc4cf/segment-000001/20260721-223701-49232e/stdout.txt",
+    "records/labs/lab-scout-bdf77f43574b-03d1a8ffc4cf-stopped-with-reason-segment-01.json"
+  ],
+  "artifact_count": 38,
+  "artifacts": [
+    {
+      "path": ".delegates/20260722-043007-34b82f/source-discriminator/memo.md",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "9f22d5ec4d6cd495ab751f3e2aa2831ceccb59450e674230466120308a1a7a5c",
+        "size": 3118
+      }
+    },
+    {
+      "path": ".git/COMMIT_EDITMSG",
+      "role": "mutable_projection",
+      "change": "modified",
+      "claimed_evidence": false,
+      "before": {
+        "kind": "file",
+        "sha256": "4bf2274718415050a6c04d23960c81bcd6831411a0db9e4b37c0429ba1a892ff",
+        "size": 79
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "f248dfb53a4b733238b7a291327f37bfc0724bada8a9ad86abba7f4c6b6479cb",
+        "size": 69
+      }
+    },
+    {
+      "path": ".git/index",
+      "role": "mutable_projection",
+      "change": "modified",
+      "claimed_evidence": false,
+      "before": {
+        "kind": "file",
+        "sha256": "be59d2b3892b836d78c3add21c005cd806967f84ace0161fea402fcf022de6be",
+        "size": 18229
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "0f2721471a8a4e88de16065a323d22eb8d39bad598b6609b6e28260ea55f4ac0",
+        "size": 19154
+      }
+    },
+    {
+      "path": ".git/logs/HEAD",
+      "role": "immutable_artifact",
+      "change": "modified",
+      "claimed_evidence": false,
+      "before": {
+        "kind": "file",
+        "sha256": "b6e1af98d1abd5412542cf6c8e93f06443db6d0d216dd5b82584f863840a9327",
+        "size": 6527
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "5091e6f54051023931f4c061d9d8094740ae9a938730c0560ed1a09efa0ca212",
+        "size": 6733
+      }
+    },
+    {
+      "path": ".git/logs/refs/heads/main",
+      "role": "immutable_artifact",
+      "change": "modified",
+      "claimed_evidence": false,
+      "before": {
+        "kind": "file",
+        "sha256": "b58f2724e23cd44965d9dcbce28f53f6c7222a5ffb794b94cccd44222a8761a3",
+        "size": 5222
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "e4c64ba98c73e460fbeee3bca8976dee9c0d97720003980a898183ec79744587",
+        "size": 5428
+      }
+    },
+    {
+      "path": ".git/objects/0c/e13b03c4f43972950189bc26a1ae9eddf9452e",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "c32fb095e49d88fe444a25bff2015586448dfbb579d51fee36892ef893e9f60e",
+        "size": 85
+      }
+    },
+    {
+      "path": ".git/objects/0d/6709df6b541191d3307ca9599c571b71a26032",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "bc4806a1c8ea3c6c237d8ee134556c968fa37bdf7154cec6e27a0a59342b7031",
+        "size": 103
+      }
+    },
+    {
+      "path": ".git/objects/2e/92de6b273a8b965834294307efd3c8be4f27dc",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "08210b9a89c4c6445a50919598d1a0a25b03e369e113947462942c8ad4a8c831",
+        "size": 52
+      }
+    },
+    {
+      "path": ".git/objects/2f/22974ea82f7ad001b7fcbd0c003cbb06f85688",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "b78734349d9746b966745abf0cbd51ca0c1986007127d47604725a3f32e85e5f",
+        "size": 216
+      }
+    },
+    {
+      "path": ".git/objects/50/f718eca449cf6127534bcf11a69bec2bd28bbf",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "27060951d29e21c721f88a39fff68a947e4d1c42a01d54a93e0daaad4f7213de",
+        "size": 1688
+      }
+    },
+    {
+      "path": ".git/objects/57/b0e444b12bebdd0c743b28b1867dbf2cd5a906",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "a8f5bec19e83e9ffdb274ea547d6f303c2fee3df82cd62c1b3b723e2ae4154d3",
+        "size": 62
+      }
+    },
+    {
+      "path": ".git/objects/5b/ef4f42039e81c8eca6f07f5f809b0d77f6b2cd",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "2cfd88f614cc24bf92865d2c9f5f3d4f3eed21f58de25683e92908de7dbe4dec",
+        "size": 698
+      }
+    },
+    {
+      "path": ".git/objects/65/c78ab95879c9dd06b962e0600db9abfa4f6d25",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "b2aa668e4efd2cd5bda71e0c7d913733734714004842b8ed885efb58d49723d2",
+        "size": 192
+      }
+    },
+    {
+      "path": ".git/objects/6f/2c05a5a8459eb7355abe8b3299c0b19fd82a55",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "f28434c3253e32a29ecf4b1d209a1244c7e2bf406c236f96410fc10f33034775",
+        "size": 578
+      }
+    },
+    {
+      "path": ".git/objects/79/fba6b386fc3c5dd4850ac3035da2a5c9c100c7",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "50c59c37a78f48f8f1acade743eacba686f8540e7f7920431c5a32247d224069",
+        "size": 238
+      }
+    },
+    {
+      "path": ".git/objects/7a/c2c22e94d1a0eee4ee8d35d72dffa0280c6e53",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "6bdab119530923f0213ef30bd7e7cc8ab189b6784eabce4be45ebb55a4f52bc7",
+        "size": 160
+      }
+    },
+    {
+      "path": ".git/objects/84/88bd750dc368a4780becb9763e87374e9d50c2",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "a186c73785c3b2a612c40159f74526148d556d6a68febbf1d76167ecb6312b90",
+        "size": 520
+      }
+    },
+    {
+      "path": ".git/objects/af/818d6eb203ff14cdd281426b6bd001429a7749",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "f7000b6c82c8a1adaf9c559e325bb67da59633df22cb61c66fbee13a73235def",
+        "size": 1848
+      }
+    },
+    {
+      "path": ".git/objects/b9/2251de02bc094d162d59bcf9ffb44edd89b4ec",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "07cf457119cec26368a73a9784efea4142bc5eb239a2ecd968395cae141f3f40",
+        "size": 945
+      }
+    },
+    {
+      "path": ".git/objects/c4/c0d0d8871d87603d398b98695d0d884040cce9",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "1c9f5189b9ef9136b0bdce41ee4ccd8e9062763beeeca39e1e2851a36cb2076e",
+        "size": 522
+      }
+    },
+    {
+      "path": ".git/objects/cf/d3b324de32928280f5b5698a696fb093f1c5f2",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "be83af6bb897a9a04c42877d0364e7f634790259fa84e42d05b678ed3443986e",
+        "size": 52
+      }
+    },
+    {
+      "path": ".git/objects/da/88e93759161afe1cd58ac12216775f273364a4",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "cce1c00a9c522be1b584211c60fcdd23191a4d83ef3dbacaebd3784fe295a9f5",
+        "size": 2013
+      }
+    },
+    {
+      "path": ".git/objects/df/3496a443a15b71fd9f2f31b1d434a769aed676",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "16a1caf29190bd7ee2f75f3a3bc9aedb34c24c805ea9533bd73b5901e6ab1a98",
+        "size": 1859
+      }
+    },
+    {
+      "path": ".git/objects/ea/5f3cce38f8d1835a9127df47dc63bf3400a863",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "1b8cbb50c7859e4cbcb00154d936af05b167406d7e0ef64fe9d5317d2afb28b2",
+        "size": 56
+      }
+    },
+    {
+      "path": ".git/refs/heads/main",
+      "role": "immutable_artifact",
+      "change": "modified",
+      "claimed_evidence": false,
+      "before": {
+        "kind": "file",
+        "sha256": "3e67283855db74a314871d8cd19a83fb26ad5f92aea7aac0b861b3371849f640",
+        "size": 41
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "98ffb5ca83e94b95c153ab806096091e05d5938abfc784bf187b9eb7c6f67d58",
+        "size": 41
+      }
+    },
+    {
+      "path": ".proof-experiments/20260721-223233-e53846/experiment.json",
+      "role": "immutable_artifact",
+      "change": "unchanged",
+      "claimed_evidence": true,
+      "before": {
+        "kind": "file",
+        "sha256": "1ca7016528d5bfed2bc590085341425da6937c118fb9dacef220cbcf055bed22",
+        "size": 2010
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "1ca7016528d5bfed2bc590085341425da6937c118fb9dacef220cbcf055bed22",
+        "size": 2010
+      }
+    },
+    {
+      "path": ".proof-experiments/20260722-043421-7797b3/experiment.json",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": true,
+      "after": {
+        "kind": "file",
+        "sha256": "0cbb36549373cf17340cf0eae86960e1275449aada0e70ba1c9879da69bcc111",
+        "size": 1934
+      }
+    },
+    {
+      "path": ".proof-experiments/20260722-043421-7797b3/stderr.txt",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      }
+    },
+    {
+      "path": ".proof-experiments/20260722-043421-7797b3/stdout.txt",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      }
+    },
+    {
+      "path": ".upstream/formal-conjectures/FormalConjectures/ErdosProblems/530.lean",
+      "role": "immutable_artifact",
+      "change": "modified",
+      "claimed_evidence": false,
+      "before": {
+        "kind": "file",
+        "sha256": "e27b8c80ed9edb57989006cc9bd299fdd58331c2b2a30b69ec9721b409562a2e",
+        "size": 4202
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "3ff7038c3c08f48408f48d53c4503182944cfd8c51b549cbab570a3b062e8466",
+        "size": 4202
+      }
+    },
+    {
+      "path": "CHECKPOINT.md",
+      "role": "mutable_projection",
+      "change": "modified",
+      "claimed_evidence": false,
+      "before": {
+        "kind": "file",
+        "sha256": "2c9bb82637598f08e2025db0b0b104ff5cb69eaf0b9bb47f3996b53711e375ad",
+        "size": 6250
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "7f7874babd057c547733cd24d7b547b9ec6be28ae16b12431d829eef26f08cd6",
+        "size": 7451
+      }
+    },
+    {
+      "path": "FormalConjectures/ErdosProblems/530.lean",
+      "role": "immutable_artifact",
+      "change": "modified",
+      "claimed_evidence": true,
+      "before": {
+        "kind": "file",
+        "sha256": "e27b8c80ed9edb57989006cc9bd299fdd58331c2b2a30b69ec9721b409562a2e",
+        "size": 4202
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "3ff7038c3c08f48408f48d53c4503182944cfd8c51b549cbab570a3b062e8466",
+        "size": 4202
+      }
+    },
+    {
+      "path": "checks/Erdos530SemanticAudit.lean",
+      "role": "immutable_artifact",
+      "change": "unchanged",
+      "claimed_evidence": true,
+      "before": {
+        "kind": "file",
+        "sha256": "d9766dd56de50bc1617d545147436aaf18a0992a118931efda65cc3f621f5bf9",
+        "size": 1578
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "d9766dd56de50bc1617d545147436aaf18a0992a118931efda65cc3f621f5bf9",
+        "size": 1578
+      }
+    },
+    {
+      "path": "checks/run_erdos530_lean_build.sh",
+      "role": "immutable_artifact",
+      "change": "modified",
+      "claimed_evidence": true,
+      "before": {
+        "kind": "file",
+        "sha256": "e2971cf312a830f1419729f45a817e60fbc7e7cceb9570b9dfa30aee825e8ec3",
+        "size": 1023
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "ea7486e083994d8727f76eef3d928a584c8a325f241a1ad962382fca4b5789a1",
+        "size": 1023
+      }
+    },
+    {
+      "path": "lab-runs/lab-scout-bdf77f43574b-03d1a8ffc4cf/segment-000001/20260721-223701-49232e/stderr.txt",
+      "role": "immutable_artifact",
+      "change": "unchanged",
+      "claimed_evidence": true,
+      "before": {
+        "kind": "file",
+        "sha256": "c4a27db198c4d8632369ee6102944ef46e83c20d685f7c17a6aaff9cfcfc710f",
+        "size": 20
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "c4a27db198c4d8632369ee6102944ef46e83c20d685f7c17a6aaff9cfcfc710f",
+        "size": 20
+      }
+    },
+    {
+      "path": "lab-runs/lab-scout-bdf77f43574b-03d1a8ffc4cf/segment-000001/20260721-223701-49232e/stdout.txt",
+      "role": "immutable_artifact",
+      "change": "unchanged",
+      "claimed_evidence": true,
+      "before": {
+        "kind": "file",
+        "sha256": "cda040f72baae5ca85902b9f50ae80f4b8b7db94fc7c787a1fb704577f864246",
+        "size": 2731
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "cda040f72baae5ca85902b9f50ae80f4b8b7db94fc7c787a1fb704577f864246",
+        "size": 2731
+      }
+    },
+    {
+      "path": "records/labs/lab-scout-bdf77f43574b-03d1a8ffc4cf-stopped-with-reason-segment-01.json",
+      "role": "immutable_artifact",
+      "change": "unchanged",
+      "claimed_evidence": true,
+      "before": {
+        "kind": "file",
+        "sha256": "bafe5b2b0bbd3212f550390764230e1d504cff2d7f7eb5b928e0bf01b4cea1a3",
+        "size": 6280
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "bafe5b2b0bbd3212f550390764230e1d504cff2d7f7eb5b928e0bf01b4cea1a3",
+        "size": 6280
+      }
+    },
+    {
+      "path": "records/labs/lab-scout-bdf77f43574b-135f90912547-submitted-segment-01.json",
+      "role": "immutable_artifact",
+      "change": "added",
+      "claimed_evidence": false,
+      "after": {
+        "kind": "file",
+        "sha256": "14f94068822ba4c1371b17c2c2b52c1dbf852b7fe8d0275f6f7b26d62ece4d7d",
+        "size": 3683
+      }
+    }
+  ],
+  "content_sha256": "1cf1fe429e383583b99a29aa2cab33aa2e2f50ae47d1af00dfbe31de1b63297c"
+}
